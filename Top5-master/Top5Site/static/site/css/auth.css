@@ -1,0 +1,396 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "titilliumregular";
+}
+
+body,
+html {
+  height: 100%;
+}
+
+#main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 22% auto;
+}
+
+#login_signup {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  height: 100%;
+}
+
+#login_signup > div:first-child {
+  background-color: #204b22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login_img {
+  position: relative;
+  object-fit: contain;
+  width: 65%;
+}
+
+.form_container {
+  display: grid;
+  padding-top: 100px;
+  text-align: center;
+  align-items: center;
+}
+
+.form_header {
+  color: #204b22;
+  text-transform: uppercase;
+  font-family: "titillium_bdbold";
+  font-size: 2em;
+}
+
+.input_form {
+  justify-self: center;
+  width: 42vw;
+}
+
+.input_form > div:not(.topics_to_like) {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #f5f4f9;
+}
+
+#topicToLikeContainer {
+  background-color: white;
+}
+
+.input_icon {
+  width: 40px;
+  padding: 15px 12px;
+}
+
+.mail_icon {
+  padding: 17px 12px;
+}
+
+.lock_icon {
+  padding: 13px 12px;
+}
+
+.input_field {
+  border: none;
+  background-color: #f5f4f9;
+  padding: 10px;
+  width: 100%;
+  height: 6.45vw;
+  border-radius: 0 15px 15px 0;
+  font-size: 1em;
+}
+
+.input_field::placeholder {
+  color: #a4a1a1;
+}
+
+.form_inner_heading {
+  color: #204b22;
+  text-align: start;
+  text-transform: uppercase;
+  font-size: 1.3em;
+  padding: 0 5px;
+  margin-bottom: 20px;
+}
+
+#topicToLikeContainer {
+  display: none;
+}
+
+.topics_to_like {
+  width: 40.6vw !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 3vw;
+  column-gap: 3vw;
+  padding: 2.68vw;
+  background-color: #f5f4f9;
+  border-radius: 15px;
+}
+
+.topics_to_like > div {
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.topics_to_like > div > span {
+  position: absolute;
+  width: 1.93vw;
+  height: 1.93vw;
+  background-color: #204b22;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  right: 5px;
+  top: -3px;
+}
+
+.topics_to_like > div > span > img {
+  width: 55%;
+}
+
+.topics_to_like > div > div:nth-child(2) {
+  width: 5.54vw;
+  height: 5.54vw;
+  border-radius: 50%;
+  padding: 1.15vw;
+  margin: auto;
+}
+
+.topics_to_like > div > div:last-child {
+  margin-top: 7px;
+  font-family: "titillium_bdbold";
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  overflow-wrap: anywhere;
+}
+
+.topics_to_like > div > div:nth-child(2) > img {
+  height: 100%;
+  display: inline-block;
+}
+
+.form_submit {
+  margin-top: 50px;
+  background-color: #204b22;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  width: 23.4vw;
+  height: 4.9vw;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1.6em;
+  font-family: "titillium_bdbold";
+}
+
+.signin_opt {
+  margin-top: 50px;
+  color: #a4a1a1;
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.signin_opt > div {
+  margin-left: 25px;
+}
+
+.signin_opt > div > a {
+  text-decoration: none;
+}
+
+.signin_opt > div > a > img {
+  margin: 0 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ask_text {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 4vh;
+  padding-top: 50px;
+}
+
+.ask_text > div {
+  display: flex;
+  justify-content: center;
+  color: #a4a1a1;
+  font-size: 15px;
+}
+
+.ask_text span {
+  color: #093253;
+  text-transform: uppercase;
+  font-family: "titillium_bdbold";
+  cursor: pointer;
+  margin-left: 5px;
+  user-select: none;
+}
+
+.forgot_pass {
+  margin-top: 20px;
+  color: #a4a1a1;
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+.forgot_pass > a {
+  color: #a4a1a1;
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+}
+
+/* Modal Start */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #888;
+  min-width: 40%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  right: 15px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.close img {
+  height: 40%;
+}
+
+.close:hover,
+.close:focus {
+  cursor: pointer;
+}
+
+.modal_title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f395e;
+  color: white;
+  height: 60px;
+  padding: 5px;
+  font-size: 26px;
+  position: relative;
+}
+
+.modal-message {
+  margin: 20px 0 40px 0;
+}
+
+.modal form {
+  border: 3px solid #f1f1f1;
+  /* border-radius: 10px; */
+}
+
+/* Full-width inputs */
+.modal input[type="text"],
+.modal input[type="email"],
+.modal input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0 20px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.modal input[type="color"] {
+  width: 100%;
+  height: 30px;
+  margin: 8px 0 20px 0;
+  border: 1px solid #ccc;
+}
+
+/* Set a style for all buttons */
+.modal_button {
+  background-color: #0f395e;
+  color: white;
+  padding: 14px 20px;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+/* Add a hover effect for buttons */
+.modal_button:hover {
+  opacity: 0.9;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+  /* border-radius: 4px; */
+}
+
+.button_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+#deleteBtn {
+  color: white;
+  background-color: #ff2c2c;
+  padding: 14px 20px;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+}
+
+#deleteBtn:hover {
+  background-color: #ff5858;
+}
+
+.status_message {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  text-align: center;
+  display: none;
+}
+
+#cancelForgotPasswordBtn {
+  color: white;
+  background-color: #ff2c2c;
+  padding: 14px 20px;
+  margin-top: 8px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+}
+
+#cancelForgotPasswordBtn:hover {
+  background-color: #ff5858;
+}
+
+/* Modal End */

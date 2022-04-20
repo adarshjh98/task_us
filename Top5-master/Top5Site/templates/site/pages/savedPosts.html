@@ -1,0 +1,66 @@
+{% extends 'site/base.html' %} {% load static %} {% block content %}
+
+<div class="user_profile_save">
+    <h2 {% if lang != 'en' %}style="text-align: right;"{% endif %}>{% if lang == 'en'%}{{ staticTextMap.saved_heading_all_en }}{% else %}{{ staticTextMap.saved_heading_all_fa }}{% endif %}</h2>
+    
+    {% if posts %}
+        {% for post in posts %}
+            <div class="saved_item" onclick="onPostClicked('{{ post.id }}')" style="{% if "link" not in post or post.link == "" %}column-gap: 0;{% endif %}">
+                <div class="item_img">
+                    {% if "link" in post and post.link != "" %}
+                        <img src="{{ post.link }}" alt="item">
+                    {% endif %}
+                </div>
+                <div class="item_details">
+                    <p style="color: {{ post.category.color }}">{{ post.name }}</p>
+                    <span>{% if "vid" in post.type %}{% if lang == 'en' %}{{ staticTextMap.video_en }}{% else %}{{ staticTextMap.video_fa }}{% endif %}{% else %}{% if lang == 'en' %}{{ staticTextMap.comment_post_en }}{% else %}{{ staticTextMap.comment_post_fa }}{% endif %}{% endif %}</span>
+                    <div>
+                        <div name="category_{{ post.category.id }}">
+                            <img src="{{ post.category.imgURL }}" alt="icon" onload="setCategoryIconBackground('{{ post.category.id }}', '{{ post.category.color }}')" />
+                        </div>
+                        <p class="category_name">{% if lang == 'en' %}{{ staticTextMap.saved_from_en }} {% endif %}<span>{{ post.category.name }} {% if not "vid" in post.type %}'s post{% endif %} {% if lang == 'fa' %}{{ staticTextMap.saved_from_fa }}{% endif %}</span></p>
+                    </div>
+                </div>
+            </div>    
+        {% endfor %}
+    {% else %}
+        <p>{% if lang == 'en'%}{{ staticTextMap.no_saved_posts_en }}{% else %}{{ staticTextMap.no_saved_posts_fa }}{% endif %}</p>
+    {% endif %}
+
+    
+        <div class="controls" >
+        <div class="control_buttons">
+            {% if pageNum > 0 %}
+            <div id="viewPrevBtn" class="view_more_btn" {% if pageNum == 0 %}style="display:none;"{% else %}style="display:flex;"{% endif %}>
+            <button>{% if lang == 'en'%}{{ staticTextMap.view_prev_en }}{% else %}{{ staticTextMap.view_prev_fa }}{% endif %}</button>
+            </div>
+            {% endif %}
+            {% if posts|length > 0 and hasNext %}
+                <div id="viewMoreBtn" class="view_more_btn" {% if not hasNext %}style="display:none;"{% else %}style="display:flex;"{% endif %}>
+                    <button>{% if lang == 'en'%}{{ staticTextMap.view_more_en }}{% else %}{{ staticTextMap.view_more_fa }}{% endif %}</button>
+                </div>
+            {% endif %}
+        </div>
+        {% if posts|length > 0 %}
+            <p id="page" style="display: block;">{% if lang == 'en'%}{{ staticTextMap.page_en }}{% else %}{{ staticTextMap.page_fa }}{% endif %} <span id="pageNum">{{ pageNumForView }}</span></p>
+        {% endif %}
+        </div>
+
+</div>
+<script>
+
+    $("#viewPrevBtn > button").click(() => {
+        window.location.href = "{% url 'saved' 123456 %}".replace(/123456/, {{ pageNum }} - 1);
+    });
+
+    $("#viewMoreBtn > button").click(() => {
+        window.location.href = "{% url 'saved' 123456 %}".replace(/123456/, {{ pageNum }} + 1);
+    });
+
+    function onPostClicked(urlParam) {
+        window.location.href = "{% url 'post' 123456 %}".replace(/123456/, encodeURI(urlParam));
+    }
+
+</script>
+    
+{% endblock %}

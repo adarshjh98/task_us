@@ -1,0 +1,61 @@
+{% load static %}
+
+<nav>
+  <div class="nav_brand" onclick="window.location.assign('{% url 'home' %}')">
+    <img src="{% static 'site/img/irantop5v42.png' %}" alt="logo"/>
+  </div>
+  <button class="toggle_btn" onclick="openRightMenu()">
+    <span class="bar line1"></span>
+    <span class="bar line2"></span>
+    <span class="bar line3"></span>
+  </button>
+  <ul class="nav_links">
+  {% if isLoggedIn %}
+    <li><a href="{% url 'home' %}" >{% if lang == 'en' %}{{ staticTextMap.side_menu_options_home_en }}{% else %}{{ staticTextMap.side_menu_options_home_fa }}{% endif %}</a></li>
+    <li><a href="{% url 'categories' %}" >{% if lang == 'en' %}{{ staticTextMap.side_menu_options_categories_en }}{% else %}{{ staticTextMap.side_menu_options_categories_fa }}{% endif %}</a></li>
+    <li><a href="{% url 'profile' %}" >{% if lang == 'en' %}{{ staticTextMap.side_menu_options_my_profile_en }}{% else %}{{ staticTextMap.side_menu_options_my_profile_fa }}{% endif %}</a></li>
+    <li><a href="{% url 'browse' %}" >{% if lang == 'en' %}{{ staticTextMap.side_menu_options_browse_en }}{% else %}{{ staticTextMap.side_menu_options_browse_fa }}{% endif %}</a></li>
+    <li><a href="{% url 'saved' 0 %}" >{% if lang == 'en' %}{{ staticTextMap.side_menu_options_saved_posts_en }}{% else %}{{ staticTextMap.side_menu_options_saved_posts_fa }}{% endif %}</a></li>
+    <li><a href="{% url 'logout' %}" >{% if lang == 'en' %}{{ staticTextMap.side_menu_options_log_out_en }}{% else %}{{ staticTextMap.side_menu_options_log_out_fa }}{% endif %}</a></li>
+  {% else %}
+    <li><a href="{% url 'categories' %}" >{% if lang == 'en' %}{{ staticTextMap.side_menu_options_categories_en }}{% else %}{{ staticTextMap.side_menu_options_categories_fa }}{% endif %}</a></li>
+    <li><a href="{% url 'credentials' %}" >Log In</a></li>
+  {% endif %}
+  </ul>
+</nav>
+
+<div id="rightMenu" class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="z-index: 10;">
+  <button onclick="closeRightMenu()" class="back_btn w3-button w3-large">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  {% if isLoggedIn %}
+  <a href="{% url 'home' %}" class="w3-bar-item w3-button">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_home_en }}{% else %}{{ staticTextMap.side_menu_options_home_fa }}{% endif %}</a>
+  <a href="{% url 'categories' %}" class="w3-bar-item w3-button">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_categories_en }}{% else %}{{ staticTextMap.side_menu_options_categories_fa }}{% endif %}</a>
+  <a href="{% url 'profile' %}" class="w3-bar-item w3-button">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_my_profile_en }}{% else %}{{ staticTextMap.side_menu_options_my_profile_fa }}{% endif %}</a>
+  <a href="{% url 'browse' %}" class="w3-bar-item w3-button">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_browse_en }}{% else %}{{ staticTextMap.side_menu_options_browse_fa }}{% endif %}</a>
+  <a href="{% url 'saved' 0 %}" class="w3-bar-item w3-button">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_saved_posts_en }}{% else %}{{ staticTextMap.side_menu_options_saved_posts_fa }}{% endif %}</a>  
+  <a href="{% url 'logout' %}" class="w3-bar-item w3-button">{% if lang == 'en' %}{{ staticTextMap.side_menu_options_log_out_en }}{% else %}{{ staticTextMap.side_menu_options_log_out_fa }}{% endif %}</a>
+  {% else %}
+  <a href="{% url 'categories' %}" class="w3-bar-item w3-button">Categories</a>
+  <a href="{% url 'credentials' %}" class="w3-bar-item w3-button">Log In</a>
+  {% endif %}
+</div>
+
+<script>
+  function openRightMenu() {
+    $("#rightMenu").show();
+  }
+
+  function closeRightMenu() {
+    $("#rightMenu").hide();
+  }
+
+  $(window).click((e) => {
+    if (
+      $(e.target).closest("#rightMenu").length == 0 &&
+      $(e.target).closest(".toggle_btn").length == 0
+    ) {
+      closeRightMenu();
+    }
+  });
+</script>

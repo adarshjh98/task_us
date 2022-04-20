@@ -1,0 +1,212 @@
+INFO 2022-04-07 19:55:23,796 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 10:33:41,813 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 10:34:20,264 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 11:24:36,270 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 11:32:26,211 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 11:32:26,900 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 11:33:22,236 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 11:33:22,887 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:00:47,323 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:07:03,072 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:24:15,846 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:24:16,477 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:26:19,580 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:26:20,222 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+ERROR 2022-04-08 13:26:59,453 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:26:59,454 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:04,197 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:04,198 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:07,364 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:07,365 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:15,238 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:15,239 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,267 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,270 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,439 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,440 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,623 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,624 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+INFO 2022-04-08 13:27:58,725 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:27:59,367 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:44:21,701 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:44:22,408 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:45:19,209 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:45:19,833 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:48:17,370 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:48:18,021 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:50:52,194 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:50:52,844 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:00:57,631 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:00:58,301 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:02:23,586 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:02:24,224 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:03:36,101 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:03:36,755 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:05:08,781 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:05:09,408 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:06:55,614 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:06:56,454 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:12:12,889 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:12:13,648 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:20:57,139 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:23:37,949 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:43:13,400 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:43:14,065 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 14:47:00,722 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:07:35,434 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:07:36,107 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:28:36,996 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:28:37,709 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:30:27,629 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:30:28,256 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:31:04,783 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:31:05,426 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:39:28,929 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:39:29,559 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:40:03,920 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:40:04,550 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:40:27,014 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:40:27,683 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:40:35,287 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:40:35,973 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:46:02,108 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:46:02,744 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:46:43,218 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader

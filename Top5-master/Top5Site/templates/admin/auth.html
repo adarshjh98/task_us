@@ -1,0 +1,278 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login/SignUp</title>
+
+    <link
+      rel="stylesheet"
+      href="{% static 'site_admin/font/stylesheet.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'site_admin/css/credentials.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'site_admin/css/dashboard.css' %}" />
+    <link rel="stylesheet" href="{% static 'site_admin/css/loader.css' %}" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="overlayLoader" style="display: none">
+      <div class="lds-default">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <div id="forgotPasswordModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal_title">
+          <p>Forgot Password</p>
+          <span
+            id="forgotPasswordModalClose"
+            class="close"
+            onclick="$('#forgotPasswordModal').hide();"
+            ><img src="{% static 'site_admin/img/delete_circle.png' %}"
+          /></span>
+        </div>
+        <div>
+          <form id="forgotPasswordForm" method="POST">
+            {% csrf_token %}
+            <div class="container">
+              <label for="recoveryEmailInp" class="email_label"
+                ><b>Email</b></label
+              >
+              <input
+                id="recoveryEmailInp"
+                type="email"
+                class="emmail_label"
+                placeholder="Email"
+                name="recoveryEmail"
+                autocomplete="off"
+                required
+              />
+
+              <div class="status_message"></div>
+
+              <div class="button_grid">
+                <button
+                  id="cancelForgotPasswordBtn"
+                  type="button"
+                  onclick="$('#forgotPasswordModal').hide();"
+                >
+                  Cancel</button
+                ><button
+                  id="sendRecoveryEmailBtn"
+                  class="modal_button"
+                  type="submit"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div id="login_signup">
+      <img
+        class="login_img"
+        src="{% static 'site_admin/img/login_page_pic.png' %}"
+        alt="login_img"
+      />
+      <div class="form_container">
+        <h3 class="form_header">Log in</h3>
+        <form id="credentialsForm" class="input_form">
+          {% csrf_token %}
+          <div id="usernameField">
+            <img
+              class="input_icon"
+              src="{% static 'site_admin/img/login_user_icon.png' %}"
+              alt="username"
+            />
+            <input
+              type="text"
+              name="username"
+              class="input_field"
+              id="username"
+              placeholder="Username"
+            />
+          </div>
+          <div>
+            <img
+              class="input_icon mail_icon"
+              src="{% static 'site_admin/img/login_email_icon.png' %}"
+              alt="email"
+            />
+            <input
+              type="email"
+              name="email"
+              class="input_field"
+              placeholder="Email"
+              id="email"
+              required
+            />
+          </div>
+          <div>
+            <img
+              class="input_icon lock_icon"
+              src="{% static 'site_admin/img/login_lock_icon.png' %}"
+              alt="password"
+            />
+            <input
+              type="password"
+              name="password"
+              class="input_field"
+              placeholder="Password"
+              id="password"
+              required
+            />
+          </div>
+          <div id="confirmPasswordField">
+            <img
+              class="input_icon lock_icon"
+              src="{% static 'site_admin/img/login_lock_icon.png' %}"
+              alt="password"
+            />
+            <input
+              type="password"
+              name="confirmPassword"
+              class="input_field"
+              placeholder="Confirm Password"
+              id="confirmPassword"
+              required
+            />
+          </div>
+          <button class="form_submit">Log in</button>
+          <p
+            class="forgot_pass"
+            onclick="$('#forgotPasswordModal').css('display', 'flex');"
+          >
+            Forgot Password?
+          </p>
+        </form>
+        {% comment %}
+        <div class="signin_opt">
+          <p>Sign in using</p>
+          <div>
+            <a href="/" class="external_login_link">
+              <img
+                src="{% static 'site_admin/img/gmail_icon.png' %}"
+                alt="gmail"
+              />
+            </a>
+            <a href="/" class="external_login_link">
+              <img
+                src="{% static 'site_admin/img/facebook_icon.png' %}"
+                alt="facebook"
+              />
+            </a>
+            <a href="/" class="external_login_link">
+              <img
+                src="{% static 'site_admin/img/twitter_icon.png' %}"
+                alt="twitter"
+              />
+            </a>
+          </div>
+        </div>
+        {% endcomment %}
+        <div class="ask_text">
+          <div>
+            <p>Don't have and account?</p>
+            <span onclick="switchLoginSignup()">Sign up!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let login = false;
+
+      switchLoginSignup();
+
+      $("#forgotPasswordForm").on("submit", (e) => {
+        e.preventDefault();
+        $.ajax({
+          type: "POST",
+          url: "{% url 'admin_auth' %}",
+          data: $("#forgotPasswordForm").serializeArray(),
+          success: (response) => {
+            if (response.result != "success") {
+              alert("Invalid credentials!");
+            }
+            $("#forgotPasswordModal").hide();
+          },
+          error: (xhr, errmsg, err) => {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+          },
+        });
+      });
+
+      function switchLoginSignup() {
+        login = !login;
+        if (login) {
+          $("#credentialsForm")[0].reset();
+          $(".form_header").text("Log in");
+          $("#usernameField, #confirmPasswordField").hide();
+          $("#username, #confirmPassword").prop("required", false);
+          $(".forgot_pass").show();
+          $(".form_submit").text("Log in");
+          $("div.ask_text p").text("Don't have an account?");
+          $("div.ask_text span").text("Sign up");
+        } else {
+          $("#credentialsForm")[0].reset();
+          $(".form_header").text("Sign up");
+          $("#usernameField, #confirmPasswordField").show();
+          $("#username, #confirmPassword").prop("required", true);
+          $(".form_submit").text("Sign up");
+          $(".forgot_pass").hide();
+          $("div.ask_text p").text("Already have an account?");
+          $("div.ask_text span").text("Log in");
+        }
+      }
+
+      $("#credentialsForm").on("submit", (e) => {
+        e.preventDefault();
+
+        if (
+          login ||
+          (!login && $("#confirmPassword").text() == $("#password").text())
+        ) {
+          $.ajax({
+            type: "POST",
+            url: "{% url 'admin_auth' %}",
+            data: $("#credentialsForm").serializeArray(),
+            success: (response) => {
+              if (response.result == "success") {
+                window.location = "{% url 'dashboard' %}";
+              } else {
+                alert("Invalid credentials!");
+              }
+            },
+            error: (xhr, errmsg, err) => {
+              console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+            },
+          });
+        } else {
+          alert("Password mismatch!");
+        }
+      });
+    </script>
+  </body>
+</html>

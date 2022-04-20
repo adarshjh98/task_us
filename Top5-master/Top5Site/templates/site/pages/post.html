@@ -1,0 +1,445 @@
+{% extends 'site/base.html' %} {% load static %} {% block content %}
+
+<title>Post - {{ post.name }}</title>
+
+<style>
+  img,
+  video {
+    max-width: 100%;
+  }
+</style>
+
+<div id="selectedPost">
+  <img
+    id="closePostBtn"
+    src="{% static 'site/img/next_btn.png' %}"
+    onclick="window.history.back();"
+  />
+  <div id="selectedPostTitle">{{ post.name }}</div>
+  <div id="selectedPostContent">
+    {% if "img" in post.type %}
+    <a href="{{ post.link }}" class="progressive replace">
+      <img
+        id="postImageOrVideo"
+        src="{% if 'minLink' in post %}{{ post.minLink }}{% else %}{{ post.link }}{% endif %}"
+        class="preview"
+        alt="image"
+        style="width: 100%"
+        loading="lazy"
+      />
+    </a>
+    {% elif "vid" in post.type %}
+    <video id="postImageOrVideo" src="{{ post.link }}" controls></video>
+    {% endif %} {% if "txt" in post.type|lower or post.type == "article" %}
+    <pre style="white-space: normal"></pre>
+    {% endif %}
+  </div>
+
+  <div id="selectedPostActionAndComments">
+    <div class="post_action">
+      <div class="post_action_item" name="like_{{ post.id }}">
+        <span
+          class="{% if post.isLiked %}fas{% else %}far{% endif %} fa-heart"
+          style="{% if post.isLiked %}color: #D7443E{% endif %}"
+        >
+        </span>
+        <span {% if lang != "en" %}style="direction: rtl;"{% endif %}>{{ post.likesCount }} {% if post.likesCount == 1 %}
+          {% if lang == 'en' %}{{ staticTextMap.like_en }}{% else %}{{ staticTextMap.like_fa }}{% endif%}{% else %}
+          {% if lang == 'en' %}{{ staticTextMap.likes_en }}{% else%}{{ staticTextMap.likes_fa }}{% endif %}{% endif %}</span
+        >
+      </div>
+      <div class="post_action_item" id="comments_count_{{ post.id }}">
+        <span class="far fa-comment"> </span>
+        <span {% if lang != "en" %}style="direction: rtl;"{% endif %}>{{ post.comments }} {% if post.comments == 1 %}{% if lang == 'en'%}{{ staticTextMap.comment_en }}{% else %}{{ staticTextMap.comment_fa}}{% endif %}{% else %}{% if lang == 'en' %}{{ staticTextMap.comments_en }}{% else %}{{ staticTextMap.comments_fa}}{% endif %}{% endif %}
+        </span>
+      </div>
+
+      <div
+        class="post_action_item"
+        name="save_{{ post.id }}"
+        data-category-id="{{ post.category.id }}"
+      >
+        <span
+          class="{% if post.isSaved %}fas{% else %}far{% endif %} fa-bookmark"
+        >
+        </span>
+      </div>
+    </div>
+    <div class="comment_sec">
+      <div
+        class="likes"
+        style="transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %})"
+      >
+        <div class="user_pic">
+          <img src="{% static 'site/img/user_avatar.png' %}" alt="user" />
+          <img src="{% static 'site/img/user_avatar.png' %}" alt="user" />
+          <img src="{% static 'site/img/user_avatar.png' %}" alt="user" />
+        </div>
+        <span id="likeStrWtRefresh" style="transform: inherit">{{ post.likeStr }}</span>
+      </div>
+      <div id="comments_{{ post.id }}" class="comments">
+        {% for comment in post.allComments %}
+        <div
+          id="{{ comment.id }}"
+          class="comment"
+          style="
+            transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});
+          "
+        >
+          <img
+
+             {% if comment.profilePhoto %}
+             src="{{comment.profilePhoto}}"
+             {% else %}
+             src="{% static 'site/img/user_avatar.png' %}"
+             {% endif %}
+            alt="user"
+            class="user_photo"
+            style="
+              transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});
+            "
+          />
+          <div class="comment_content">
+            <span
+              style="
+                transform: scaleX(
+                  {% if lang == 'en' %}1{% else %}-1{% endif %}
+                );
+              "
+              >{{ comment.username }}</span
+            ><span
+              style="
+                grid-column: 2/4;
+                transform: scaleX(
+                  {% if lang == 'en' %}1{% else %}-1{% endif %}
+                );
+              "
+              >{{ comment.comment }} </span
+            ><span
+              class="comment_time comment_action"
+              style="
+                cursor: unset;
+                opacity: 0;
+                pointer-events: none;
+                transform: scaleX(
+                  {% if lang == 'en' %}1{% else %}-1{% endif %}
+                );
+              "
+              >24h</span
+            >
+            {% if isLoggedIn %}
+            <span
+              class="comment_action"
+              style="
+                transform: scaleX(
+                  {% if lang == 'en' %}1{% else %}-1{% endif %}
+                );
+              "
+              >Reply</span
+            >
+            {% if userID == comment.userID %}
+            <span
+              class="comment_action"
+              style="
+                color: #ff5656;
+                margin-left: 10px;
+                transform: scaleX(
+                  {% if lang == 'en' %}1{% else %}-1{% endif %}
+                );
+              "
+              onclick="onDeleteComment(this)"
+              >Delete</span
+            >
+            {% endif %} {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div
+      class="comment_input"
+      style="transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %})"
+    >
+      <img
+
+        {% if userPhoto %}
+        src ="{{userPhoto}}"
+        {% else %}
+        src="{% static 'site/img/user_avatar.png' %}"
+        {% endif %}
+
+        alt="user"
+        style="transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %})"
+      />
+      <input
+        id="comment_inp_{{ post.id }}"
+        type="text"
+        style="transform: inherit; direction: {% if lang == 'en' %}ltr{% else %}rtl{% endif %};"
+        {%
+        if
+        isLoggedIn
+        %}disabled{%
+        endif
+        %}
+        placeholder="{% if isLoggedIn %}{% if lang == 'en '%}{{ staticTextMap.comment_input_placeholder_en }}{% else %}{{ staticTextMap.comment_input_placeholder_fa }}{% endif %}{% else %}{% if lang == 'en '%}{{ staticTextMap.comment_input_anon_placeholder_en }}{% else %}{{ staticTextMap.comment_input_anon_placeholder_fa }}{% endif %}{% endif %}"
+      />
+      {% if isLoggedIn %}
+      <button
+        id="postBtn"
+        class="postBtn_{{ post.id }}"
+        style="transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %})"
+      >
+        {% if lang == 'en' %}{{ staticTextMap.comment_post_en }}{% else %}{{ staticTextMap.comment_post_fa }}{% endif %}
+      </button>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    let selectedCommentForDeletion = "";
+
+    function onDeleteComment(e) {
+      selectedCommentForDeletion = $(e).closest(".comment").attr("id");
+
+      $("#postCommentDeletionConfirmationModal").show();
+    }
+
+    $(document).ready(() => {
+      let postMap = {{ postMap | safe }};
+      const postID = postMap['id'];
+
+      $("#selectedPostContent > pre").html(decodeHTMLEntities(postMap['text']));
+
+      //document.querySelector("#selectedPostContent > pre").innerHTML = cleanHTML(postMap['text']);
+
+      for(let i = 0; i < postMap["allComments"].length; i++){
+        $("#" + postMap["allComments"][i]["id"] + " .comment_time").text({{ serverTime }} - timeSince(postMap["allComments"][i]["timestamp"]));
+        $("#" + postMap["allComments"][i]["id"] + " .comment_time").css("opacity", 1);
+      }
+
+      function decodeHTMLEntities(text) {
+        var textArea = document.createElement('textarea');
+        textArea.innerHTML = text;
+        return textArea.value;
+      }
+
+      function likePost(targetElement, isLike) {
+        targetElement.disabled= true;
+
+        $.ajax({
+          type: "POST",
+          url: "{% url 'post' 123456 %}".replace(/123456/, "{{ urlQuery | safe }}"),
+          data: {
+            type: "like",
+            isLike: isLike,
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+          },
+          success: (response) => {
+            targetElement.disabled= false;
+            if (response.result == "success") {
+              $("#likeStrWtRefresh").html(""+response.likeStrWR+"");
+              $(
+                "#selectedPostActionAndComments [name='like_" +
+                  postID +
+                  "'] > span:first-child"
+              )
+                .toggleClass("far")
+                .toggleClass("fas");
+              $(
+                "#selectedPostActionAndComments [name='like_" +
+                  postID +
+                  "'] > span:first-child"
+              ).css("color", isLike ? "#D7443E" : "black");
+              $(
+                "#selectedPostActionAndComments [name='like_" +
+                  postID +
+                  "'] > span:last-child"
+              ).html(response.likesCount + " like" + (response.likesCount != 1 ? "s" : ""));
+            }
+          },
+          error: (xhr, errmsg, err) => {
+            targetElement.disabled= false;
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+          },
+        });
+      }
+
+      function addNewComment(commentID, message) {
+        let comment = document.createElement("div");
+        comment.classList.add("comment");
+        comment.setAttribute("id", commentID);
+        comment.setAttribute("data-post-id", postID);
+        comment.setAttribute("style", "transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});");
+          comment.innerHTML =
+            "<img src=\"{% static 'site/img/user_avatar.png' %}\" alt='user' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' /><div class='comment_content'><span style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>You</span><span style='grid-column: 2/4; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>" +
+            message +
+            "</span><span class='comment_action' style='cursor: unset; pointer-events: none; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>24h</span>" + ("{{ isLoggedIn }}" == "True" ? "<span class='comment_action' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>Reply</span><span class='comment_action' style='color:#ff5656; margin-left:10px; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' onclick='onDeleteComment(this)'>Delete</span>" : "") + "</div>";
+
+        document.getElementById("comments_" + postID).appendChild(comment);
+      }
+
+      function commentOnPost(comment) {
+        $("#postBtn").prop("disabled", true);
+        $.ajax({
+          type: "POST",
+          url: "{% url 'post' 123456 %}".replace(/123456/, "{{ urlQuery | safe }}"),
+          data: {
+            type: "comment",
+            comment: comment,
+            timestamp: new Date().getTime(),
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+          },
+          success: (response) => {
+            if (response.result == "success") {
+              addNewComment(response.commentID, comment);
+              $(
+                "#comments_count_" +
+                  postID +
+                  " > span:last-child"
+              ).html(
+                response.comments +
+                  " comment" +
+                  (response.comments != 1 ? "s" : "") +
+                  "</span>"
+              );
+              $("#comment_inp_" + postID).val("");
+            }
+
+            $("#postBtn").prop("disabled", false);
+          },
+          error: (xhr, errmsg, err) => {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+          },
+        });
+      }
+
+      function deleteComment(commentID) {
+        $.ajax({
+          type: "POST",
+          url: "{% url 'post' 123456 %}".replace(/123456/, "{{ urlQuery | safe }}"),
+          data: {
+            type: "delete_comment",
+            commentID: commentID,
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+          },
+          success: (response) => {
+            if (response.result == "success") {
+              $("#" + commentID).remove()
+              $(
+                "#comments_count_" +
+                  postID +
+                  " > span:last-child"
+              ).html(
+                response.comments +
+                  " comment" +
+                  (response.comments != 1 ? "s" : "") +
+                  "</span>"
+              );
+            } else {
+              alert("Failed to delete comment!");
+            }
+
+            $("#postCommentDeletionConfirmationModal").hide();
+          },
+          error: (xhr, errmsg, err) => {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+          },
+        });
+      }
+
+      function savePost(categoryID, isSave) {
+        $.ajax({
+          type: "POST",
+          url: "{% url 'post' 123456 %}".replace(/123456/, "{{ urlQuery | safe }}"),
+          data: {
+            type: "save",
+            isSave: isSave,
+            categoryID: categoryID,
+            csrfmiddlewaretoken: "{{ csrf_token }}",
+          },
+          success: (response) => {
+            if (response.result == "success") {
+              $(
+                "[name='save_" +
+                  postID +
+                  "'] > span"
+              )
+                .toggleClass("far")
+                .toggleClass("fas");
+            }
+          },
+          error: (xhr, errmsg, err) => {
+            console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+          },
+        });
+      }
+
+      function loginUser(){
+        //window.location.href = "{% url 'credentials' %}";
+        window.location.href = "{% url 'credentials' %}?next={{request.path}}";
+      }
+
+        $(
+          "#selectedPostActionAndComments [name='like_" + postMap["id"] + "']"
+        ).click((e) => {
+
+          if ("{{ isLoggedIn }}" == "True") {
+            likePost(this,
+              $(
+                "#selectedPostActionAndComments [name='like_" +
+                  postID +
+                  "'] > span:first-child"
+              ).hasClass("far")
+            );
+          }else{
+            loginUser();
+          }
+
+        });
+
+        $("#postBtn").click(
+          (e) => {
+            if ("{{ isLoggedIn }}" == "True") {
+              commentInp = $(
+                "#selectedPostActionAndComments #comment_inp_" + postID
+              ).val();
+              commentOnPost(commentInp);
+            }else{
+             loginUser();
+            }
+          }
+        );
+
+        $(
+          "#selectedPostActionAndComments [name='save_" + postMap["id"] + "']"
+        ).click((e) => {
+          if ("{{ isLoggedIn }}" == "True") {
+            categoryID = $(e.target)
+              .closest(".post_action_item")
+              .attr("data-category-id");
+            savePost(
+              categoryID,
+              $(
+                "#selectedPostActionAndComments [name='save_" + postID + "'] > span"
+              ).hasClass("far")
+            );
+          }else{
+            loginUser();
+          }
+
+        });
+
+        $("#confirmCommentDeletionBtn").click(() => {
+          if ("{{ isLoggedIn }}" == "True") {
+           deleteComment(selectedCommentForDeletion);
+          }else{
+            loginUser();
+          }
+        });
+    });
+  </script>
+
+  {% endblock %}
+
+</div>
+

@@ -1,0 +1,65 @@
+<resources>
+    <string name="app_name">Top5</string>
+
+    <string name="your_fav">YOUR FAVORITE</string>
+    <string name="rec_app">RECOMMENDATION APP</string>
+    <string name="log_in">LOG IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="new_quick_login_face_id"><b>NEW!</b> Quick login using face ID</string>
+    <string name="use_face_id">USE FACE ID</string>
+    <string name="forgot_pass_heading">FORGOT PASSWORD</string>
+    <string name="forgot_pass">Forgot your password?</string>
+    <string name="forgot_pass_ins">A password reset email will be sent to the provided email, if associated to an account.</string>
+    <string name="send">SEND</string>
+    <string name="sign_in_using">Sign in using</string>
+    <string name="new_acc">Don\'t have an account? SIGN UP NOW</string>
+    <string name="sign_up_using">Sign up using</string>
+    <string name="existing_acc">Already have an account? LOG IN</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_confirm_password">Confirm Password</string>
+    <!--    <string name="hint_gender">Gender</string>-->
+    <!--    <string name="hint_bio">Tell us a bit about yourself</string>-->
+    <string name="user_pref_ins">Choose some topics you like, or search for your favorite content</string>
+    <string name="search_txt_placeholder">Enter keywords...</string>
+    <string name="category">CATEGORY</string>
+    <string name="popular">POPULAR</string>
+    <string name="save">SAVE</string>
+    <string name="filter">FILTER</string>
+    <string name="filter_made_for_you">MADE FOR YOU</string>
+    <string name="filter_you_may_also_like">YOU MAY ALSO LIKE</string>
+    <string name="filter_recently_viewed">RECENTLY VIEWED</string>
+    <string name="filter_new">NEW</string>
+    <string name="filter_mood">MOOD</string>
+    <string name="your_interests">Your interests</string>
+    <string name="language">Language</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="title_edit_profile_photo">Edit Profile Photo</string>
+    <string name="browse_photo_title">Select Profile Photo</string>
+    <string name="gallery">Gallery</string>
+    <string name="photo">Camera</string>
+    <!--    <string name="gender">GENDER</string>-->
+    <!--    <string name="bio">BIO</string>-->
+    <string name="loading">LOADING</string>
+    <string name="none">NONE</string>
+    <string name="downloads_none">You have saved nothing to your downloads yet</string>
+    <string name="details_none">There is nothing here - yet!</string>
+
+    <!--    <string name="gender_placeholder">Female</string>-->
+    <string name="bio_placeholder">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</string>
+
+    <string name="english">English</string>
+    <string name="persian">Persian</string>
+
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_of_use">Terms of Service</string>
+
+
+
+    <!--    <string name="gender_male">Male</string>-->
+    <!--    <string name="gender_female">Female</string>-->
+    <!--    <string name="gender_other">Other</string>-->
+    <!--    <string name="gender_prefer_not_to_say">Prefer not to say</string>-->
+
+</resources>

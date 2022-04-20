@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/loadedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".view.main.FiltersFragment">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/topBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layoutDirection="ltr"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:id="@+id/back_btn_top_gap"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="W, 0.043:1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/back_btn_start_gap"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/back_btn_top_gap"
+                        app:layout_constraintWidth_percent="0.061" />
+
+                    <ImageView
+                        android:id="@+id/backBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:src="@drawable/back"
+                        app:layout_constraintDimensionRatio="0.711"
+                        app:layout_constraintStart_toEndOf="@+id/back_btn_start_gap"
+                        app:layout_constraintTop_toBottomOf="@+id/back_btn_top_gap"
+                        app:layout_constraintWidth_percent="0.05" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/main_content_top_gap"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="W, 0.043:1"
+                    app:layout_constraintTop_toBottomOf="@+id/topBar" />
+
+                <View
+                    android:id="@+id/main_content_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/main_content_top_gap"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.092" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/main_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/main_content_start_gap"
+                    app:layout_constraintTop_toBottomOf="@+id/main_content_top_gap">
+
+                    <TextView
+                        android:id="@+id/filter_txt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/titillium_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/filter"
+                        android:textColor="#000"
+                        app:autoSizeMaxTextSize="21sp"
+                        app:autoSizeMinTextSize="18sp"
+                        app:autoSizeStepGranularity="2sp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/checkboxes_top_gap"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="W, 0.086:1"
+                        app:layout_constraintTop_toBottomOf="@+id/filter_txt" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/checkboxes_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/checkboxes_top_gap">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/checkbox1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.056:1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <CheckBox
+                                android:id="@+id/checkboxInp1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/check_box_states"
+                                android:button="@null"
+                                android:clickable="false"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="W, 1:1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/checkboxInpTxt1"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="30dp"
+                                android:fontFamily="@font/titillium_regular"
+                                android:includeFontPadding="false"
+                                android:text="@string/filter_made_for_you"
+                                app:autoSizeMaxTextSize="18sp"
+                                app:autoSizeMinTextSize="14sp"
+                                app:autoSizeTextType="uniform"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/checkboxInp1" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/checkboxes_middle_gap_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.052:1"
+                            app:layout_constraintTop_toBottomOf="@+id/checkbox1" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/checkbox2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.056:1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/checkboxes_middle_gap_1">
+
+                            <CheckBox
+                                android:id="@+id/checkboxInp2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/check_box_states"
+                                android:button="@null"
+                                android:clickable="false"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="W, 1:1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/checkboxInpTxt2"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="30dp"
+                                android:fontFamily="@font/titillium_regular"
+                                android:includeFontPadding="false"
+                                android:text="@string/filter_recently_viewed"
+                                app:autoSizeMaxTextSize="18sp"
+                                app:autoSizeMinTextSize="14sp"
+                                app:autoSizeTextType="uniform"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/checkboxInp2" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/checkboxes_middle_gap_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.052:1"
+                            app:layout_constraintTop_toBottomOf="@+id/checkbox2" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/checkbox3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.056:1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/checkboxes_middle_gap_2">
+
+                            <CheckBox
+                                android:id="@+id/checkboxInp3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/check_box_states"
+                                android:button="@null"
+                                android:clickable="false"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="W, 1:1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/checkboxInpTxt3"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="30dp"
+                                android:fontFamily="@font/titillium_regular"
+                                android:includeFontPadding="false"
+                                android:text="@string/filter_you_may_also_like"
+                                app:autoSizeMaxTextSize="18sp"
+                                app:autoSizeMinTextSize="14sp"
+                                app:autoSizeTextType="uniform"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/checkboxInp3" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/checkboxes_middle_gap_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.052:1"
+                            app:layout_constraintTop_toBottomOf="@+id/checkbox3" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/checkbox4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.056:1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/checkboxes_middle_gap_3">
+
+                            <CheckBox
+                                android:id="@+id/checkboxInp4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/check_box_states"
+                                android:button="@null"
+                                android:clickable="false"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintDimensionRatio="W, 1:1"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/checkboxInpTxt4"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="30dp"
+                                android:fontFamily="@font/titillium_regular"
+                                android:includeFontPadding="false"
+                                android:text="@string/filter_new"
+                                app:autoSizeMaxTextSize="18sp"
+                                app:autoSizeMinTextSize="14sp"
+                                app:autoSizeTextType="uniform"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/checkboxInp4" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                            android:id="@+id/checkboxes_middle_gap_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintDimensionRatio="W, 0.052:1"
+                            app:layout_constraintTop_toBottomOf="@+id/checkbox4" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <View
+                        android:id="@+id/your_interests_top_gap"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="W, 0.12:1"
+                        app:layout_constraintTop_toBottomOf="@+id/checkboxes_layout" />
+
+                    <TextView
+                        android:id="@+id/your_interests_txt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/titillium_regular"
+                        android:includeFontPadding="false"
+                        android:text="@string/your_interests"
+                        app:autoSizeMaxTextSize="17sp"
+                        app:autoSizeMinTextSize="14sp"
+                        app:autoSizeStepGranularity="1sp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintTop_toBottomOf="@+id/your_interests_top_gap" />
+
+                    <View
+                        android:id="@+id/interests_list_top_gap"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="W, 0.049:1"
+                        app:layout_constraintTop_toBottomOf="@+id/your_interests_txt" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/interestsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="W, 0.073:1"
+                        app:layout_constraintTop_toBottomOf="@+id/interests_list_top_gap" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/save_btn_top_gap"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="W, 0.186:1"
+                    app:layout_constraintTop_toBottomOf="@+id/main_content" />
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/round_rect_with_ripple"
+                    android:fontFamily="@font/titillium_medium"
+                    android:text="@string/save"
+                    android:textColor="@color/colorAccent"
+                    app:autoSizeMaxTextSize="18sp"
+                    app:autoSizeMinTextSize="14sp"
+                    app:autoSizeStepGranularity="0.5sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintDimensionRatio="H, 1:0.18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/save_btn_top_gap"
+                    app:layout_constraintWidth_percent="0.542" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loadingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:indeterminate="true"
+                android:theme="@style/ProgressBar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/titillium_medium"
+                android:includeFontPadding="false"
+                android:text="@string/loading"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                app:autoSizeMaxTextSize="19sp"
+                app:autoSizeStepGranularity="1.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/progressBarHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:animateLayoutChanges="true"
+            android:background="#000000"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:indeterminate="true" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

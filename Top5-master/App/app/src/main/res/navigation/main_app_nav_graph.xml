@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_app_nav_graph"
+    app:startDestination="@id/userPrefFragment">
+
+    <fragment
+        android:id="@+id/userPrefFragment"
+        android:name="com.steed.top5.view.main.UserPrefFragment"
+        android:label="UserPrefFragment"
+        tools:layout="@layout/fragment_user_pref">
+        <action
+            android:id="@+id/action_userPrefFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/browseFragment"
+        android:name="com.steed.top5.view.main.BrowseFragment"
+        android:label="BrowseFragment"
+        tools:layout="@layout/fragment_browse">
+        <action
+            android:id="@+id/action_browseFragment_to_filtersFragment"
+            app:destination="@id/filtersFragment" />
+        <action
+            android:id="@+id/action_browseFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_browseFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_browseFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+        <action
+            android:id="@+id/action_browseFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+        <action
+            android:id="@+id/action_browseFragment_to_tagPostsFragment"
+            app:destination="@id/tagPostsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.steed.top5.view.main.CategoryFragment"
+        android:label="CategoryFragment"
+        tools:layout="@layout/fragment_category" >
+
+        <action
+            android:id="@+id/action_categoryFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_filtersFragment"
+            app:destination="@id/filtersFragment" />
+        <action
+            android:id="@+id/action_categoryFragment_to_postsByCategoryFragment"
+            app:destination="@id/postsByCategoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/postsByCategoryFragment"
+        android:name="com.steed.top5.view.main.PostsByCategoryFragment"
+        android:label="PostsByCategoryFragment"
+        tools:layout="@layout/fragment_posts_by_category" >
+        <argument
+            android:name="categoryID"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_postsByCategoryFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+
+        <action
+            android:id="@+id/action_postsByCategoryFragment_to_categoryFragment"
+            app:destination="@id/categoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.steed.top5.view.main.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_filtersFragment"
+            app:destination="@id/filtersFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filtersFragment"
+        android:name="com.steed.top5.view.main.FiltersFragment"
+        android:label="FiltersFragment"
+        tools:layout="@layout/fragment_filters">
+        <action
+            android:id="@+id/action_filtersFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.steed.top5.view.main.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_filters">
+        <action
+            android:id="@+id/action_profileFragment_to_filtersFragment"
+            app:destination="@id/filtersFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_credentialsActivity"
+            app:destination="@id/credentialsActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/credentialsActivity"
+        android:name="com.steed.top5.view.credentials.CredentialsActivity"
+        android:label="CredentialsActivity"
+        tools:layout="@layout/activity_credentials" />
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.steed.top5.view.main.SavedFragment"
+        android:label="SavedFragment"
+        tools:layout="@layout/fragment_saved">
+        <action
+            android:id="@+id/action_savedFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_savedFragment_to_filtersFragment"
+            app:destination="@id/filtersFragment" />
+        <action
+            android:id="@+id/action_savedFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+        <action
+            android:id="@+id/action_savedFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.steed.top5.view.main.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_details">
+        <argument
+            android:name="postArg"
+            android:defaultValue="@null"
+            app:argType="com.steed.top5.pojo.Post"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentFragment"
+        android:name="com.steed.top5.view.main.ContentFragment"
+        android:label="ContentFragment"
+        tools:layout="@layout/fragment_content">
+        <argument
+            android:name="postArg"
+            android:defaultValue="@null"
+            app:argType="com.steed.top5.pojo.Post"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.steed.top5.view.main.CommentsFragment"
+        android:label="CommentsFragment"
+        tools:layout="@layout/fragment_comments">
+        <argument
+            android:name="postArg"
+            android:defaultValue="@null"
+            app:argType="com.steed.top5.pojo.Post"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/tagPostsFragment"
+        android:name="com.steed.top5.view.main.TagPostsFragment"
+        android:label="TagPostsFragment"
+        tools:layout="@layout/fragment_browse">
+        <argument
+            android:name="tagNameArg"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_tagPostsFragment_to_contentFragment"
+            app:destination="@id/contentFragment" />
+    </fragment>
+</navigation>

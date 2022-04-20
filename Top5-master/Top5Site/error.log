@@ -1,0 +1,304 @@
+ERROR 2022-04-08 13:26:59,453 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:26:59,453 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:26:59,454 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:26:59,454 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:04,197 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:04,197 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:04,198 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:04,198 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:07,364 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:07,364 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:07,365 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:07,365 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:15,238 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:15,238 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:15,239 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:15,239 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,267 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,270 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,267 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,270 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,439 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,439 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,440 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,440 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,623 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,623 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,624 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,624 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734

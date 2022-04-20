@@ -1,0 +1,22 @@
+{% extends 'site/base.html' %} {% load static %} {% block content %}
+
+<title>404 - Page not found!</title>
+
+<div id="selectedPost" style="height: calc(100vh - 9vw - 70px); position: relative;">
+  <img
+    id="closePostBtn"
+    src="{% static 'site/img/next_btn.png' %}"
+    onclick="window.history.back();"
+  />
+
+  <div style="display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 9vw);
+    position: absolute;
+    width: 100%;">
+    <h1>Looks like you have entered an incorrect url</h1>
+  </div>
+</div>
+
+{% endblock %}

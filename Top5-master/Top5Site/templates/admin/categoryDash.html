@@ -1,0 +1,965 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ categoryID }} Dashboard</title>
+
+    <link
+      rel="stylesheet"
+      href="{% static 'site_admin/css/categoryDash.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="{% static 'site_admin/css/bootstrap_combined.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'site_admin/css/prettify.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="{% static 'site_admin/js/jquery.hotkeys.js' %}"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    {% comment %}
+    <link
+      href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css"
+      rel="stylesheet"
+    />
+    {% endcomment %}
+    <script src="{% static 'site_admin/js/prettify.js' %}"></script>
+  </head>
+  <body>
+    <div id="category_dashboard" method="post" enctype="multipart/form-data">
+      <div class="post_sec">
+        <form id="newPostForm" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input id="name" type="text" placeholder="Name" required />
+
+          <div
+            class="btn-toolbar"
+            data-role="post_text_toolbar"
+            data-target="#postTxtArea"
+            style="display: none"
+          >
+            <div class="btn-group">
+              <a
+                class="btn dropdown-toggle"
+                data-toggle="dropdown"
+                title="Font Size"
+                ><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b
+              ></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a data-edit="fontSize 5"
+                    ><span style="font-size: 1.26em">Huge</span></a
+                  >
+                </li>
+                <li>
+                  <a data-edit="fontSize 3"
+                    ><span style="font-size: 1em">Normal</span></a
+                  >
+                </li>
+                <li>
+                  <a data-edit="fontSize 1"
+                    ><span style="font-size: 0.76em">Small</span></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"
+                ><i class="fa fa-bold"></i
+              ></a>
+              <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"
+                ><i class="fa fa-italic"></i
+              ></a>
+              <a class="btn" data-edit="strikethrough" title="Strikethrough"
+                ><i class="fa fa-strikethrough"></i
+              ></a>
+              <a
+                class="btn"
+                data-edit="underline"
+                title="Underline (Ctrl/Cmd+U)"
+                ><i class="fa fa-underline"></i
+              ></a>
+            </div>
+            <div class="btn-group">
+              <a
+                class="btn"
+                data-edit="changedirection"
+                title="Change Text Direction"
+                ><i class="fas fa-arrows-alt-h"></i
+              ></a>
+            </div>
+            <div class="btn-group">
+              <a class="btn" data-edit="insertunorderedlist" title="Bullet list"
+                ><i class="fa fa-list-ul"></i
+              ></a>
+              <a class="btn" data-edit="insertorderedlist" title="Number list"
+                ><i class="fa fa-list-ol"></i
+              ></a>
+              <a class="btn" data-edit="indent" title="Indent (Tab)"
+                ><i class="fa fa-indent"></i
+              ></a>
+            </div>
+            <div class="btn-group">
+              <a
+                class="btn"
+                data-edit="justifyleft"
+                title="Align Left (Ctrl/Cmd+L)"
+                ><i class="fa fa-align-left"></i
+              ></a>
+              <a
+                class="btn"
+                data-edit="justifycenter"
+                title="Center (Ctrl/Cmd+E)"
+                ><i class="fa fa-align-center"></i
+              ></a>
+              <a
+                class="btn"
+                data-edit="justifyright"
+                title="Align Right (Ctrl/Cmd+R)"
+                ><i class="fa fa-align-right"></i
+              ></a>
+              <a
+                class="btn"
+                data-edit="justifyfull"
+                title="Justify (Ctrl/Cmd+J)"
+                ><i class="fa fa-align-justify"></i
+              ></a>
+            </div>
+            <div class="btn-group">
+              <div id="linkBtn" class="btn" title="Hyperlink">
+                <i class="fa fa-link"></i>
+              </div>
+            </div>
+            <div class="btn-group">
+              <div id="uploadImageButton" class="btn" title="Upload Image">
+                <i class="fas fa-upload"></i>
+              </div>
+              <input
+                id="articleImgUploadInput"
+                type="file"
+                accept="image/*"
+                style="display: none"
+              />
+            </div>
+            <div class="btn-group">
+              <div id="embedImageBtn" class="btn" title="Image">
+                <i class="far fa-image"></i>
+              </div>
+              <div id="embedVideoBtn" class="btn" title="Video">
+                <i class="fas fa-video"></i>
+              </div>
+            </div>
+          </div>
+          <div id="postTxtArea"></div>
+
+          <div id="tagsSelector">
+            <input id="form-tags-4" name="tags-4" type="text" value="" />
+          </div>
+
+          <div id="uploadOptionsBtns" class="post_sec_icons">
+            <div>
+              <div id="articleBtn" class="post_sec_icon">
+                <img
+                  src="{% static 'site_admin/img/article.png' %}"
+                  alt="article_icon"
+                />
+                <span style="color: #2f363a">Article</span>
+              </div>
+            </div>
+
+            <input
+              id="imgUploadInput"
+              type="file"
+              accept="image/*"
+              style="display: none"
+            />
+            <div id="uploadImgBtn" class="post_sec_icon">
+              <img
+                src="{% static 'site_admin/img/photo_icon.png' %}"
+                alt="photo_icon"
+              />
+              <span>Photo</span>
+            </div>
+
+            <input
+              id="vidUploadInput"
+              type="file"
+              accept="video/*"
+              style="display: none"
+            />
+            <div id="uploadVidBtn" class="post_sec_icon">
+              <img
+                src="{% static 'site_admin/img/video_icon.png' %}"
+                alt="vid_icon"
+              />
+              <span>Video</span>
+            </div>
+          </div>
+          <input type="submit" style="display: none" />
+        </form>
+        <div id="uploadPreview" style="display: none">
+          <div id="imgPreview" style="display: none; position: relative">
+            <div
+              style="
+                width: 25%;
+                height: 100%;
+                display: inline-block;
+                position: absolute;
+              "
+            >
+              <span id="removeSelectedImage">
+                <img src="{% static 'site_admin/img/delete_circle.png' %}" />
+              </span>
+            </div>
+            <img id="uploadedImgPreview" width="25%" />
+          </div>
+          <div id="vidPreview" style="display: none; position: relative">
+            <div
+              style="
+                width: 25%;
+                height: 100%;
+                position: absolute;
+                display: flex;
+                justify-content: flex-end;
+                z-index: 2;
+              "
+            >
+              <span id="removeSelectedVideo">
+                <img src="{% static 'site_admin/img/delete_circle.png' %}" />
+              </span>
+            </div>
+            <video id="uploadedVidPreview" width="25%%" preload="metadata" />
+          </div>
+        </div>
+        <div style="display: flex">
+          <div id="clearBtn">Clear</div>
+          <div style="display: flex; justify-content: flex-end; width: 100%">
+            <div id="previewBtn">Preview</div>
+            <div id="saveBtn">SAVE</div>
+          </div>
+        </div>
+      </div>
+      <div class="search_sec">
+        <p>Past Posts</p>
+        {% comment %}
+        <input
+          type="text"
+          name="search"
+          class="search_input"
+          placeholder="Search"
+          id="search"
+        />
+        <div class="search_result">
+          <span>Show Result</span>
+          <span class="result_count">5</span>
+        </div>
+        {% endcomment %}
+      </div>
+      <div class="items_sec"></div>
+    </div>
+
+    <script src="{% static 'site_admin/js/bootstrap-wysiwyg.js' %}"></script>
+
+    <script src="{% static 'site_admin/js/firebaseInit.js' %}"></script>
+
+    <script src="{% static 'site_admin/js/tagsSelector.js' %}"></script>
+
+    <script>
+      $(document).ready(() => {
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+
+        let selectedPostForEdit = "";
+
+        let selectedImgOrVid, selectedPostForDeletion;
+        let isSelectedImg = false;
+        let storageRef = firebase.storage().ref();
+        let database = firebase.database();
+        const categoryID = "{{ categoryID | safe }}";
+
+        let categoryPosts = {{ categoryPosts | safe }};
+
+        $("#postTxtArea").wysiwyg({
+          toolbarSelector: "[data-role='post_text_toolbar']",
+        });
+        window.prettyPrint && prettyPrint();
+
+        $('#form-tags-4').tagsInput({
+          'autocomplete': {
+            source: {{ words | safe }}
+          }
+        });
+
+        $("#articleBtn").click(() => {
+          if(!$("#articleBtn").parent().hasClass("active")) {
+            $("#optionsSwitchConfirmationModal").show();
+          }
+        });
+
+        $("#uploadImgBtn").click(() => {
+          if($("#articleBtn").parent().hasClass("active")) {
+            $("#optionsSwitchConfirmationModal").show();
+          } else {
+            $("#imgUploadInput").click();
+          }
+        });
+
+        $("#uploadVidBtn").click(() => {
+          if($("#articleBtn").parent().hasClass("active")) {
+            $("#optionsSwitchConfirmationModal").show();
+          } else {
+            $("#vidUploadInput").click();
+          }
+        });
+
+        $("#postTxtArea").html("");
+        $("#previewBtn, #clearBtn").hide();
+        $("#articleBtn").parent().toggleClass("active");
+        if($("#articleBtn").parent().hasClass("active")) {
+          $("#articleBtn").css("padding", "9px");
+          $("#uploadImgBtn").addClass("disabled");
+          $("#uploadVidBtn").addClass("disabled");
+          $(".btn-toolbar").show();
+        } else {
+          $("#articleBtn").css("padding", "10px");
+          $("#uploadImgBtn").removeClass("disabled");
+          $("#uploadVidBtn").removeClass("disabled");
+          $(".btn-toolbar").hide();
+        }
+        $("#optionsSwitchConfirmationModal").hide();
+
+        $("#confirmOptionSwitchBtn").click(function() {
+          $("#postTxtArea").html("");
+          $("#name").val("");
+
+          let postTags = [];
+          $.each($("#tagsSelector .tag-text"), (index, tag) => postTags.push($(tag).text()));
+
+          for(let i = 0; i < postTags.length; i++) {
+            $('#form-tags-4').removeTag(postTags[i]);
+          }
+
+          if($("#articleBtn").parent().hasClass("active")) {
+            $("#articleBtn").css("padding", "10px");
+            $("#uploadImgBtn").removeClass("disabled");
+            $("#uploadVidBtn").removeClass("disabled");
+            $("#articleBtn").parent().removeClass("active");
+            $(".btn-toolbar").hide();
+            $("#optionsSwitchConfirmationModal").hide();
+          } else {
+            $("#previewBtn, #clearBtn").hide();
+            $("#articleBtn").parent().toggleClass("active");
+            if($("#articleBtn").parent().hasClass("active")) {
+              $("#articleBtn").css("padding", "9px");
+              $("#uploadImgBtn").addClass("disabled");
+              $("#uploadVidBtn").addClass("disabled");
+              $(".btn-toolbar").show();
+            } else {
+              $("#articleBtn").css("padding", "10px");
+              $("#uploadImgBtn").removeClass("disabled");
+              $("#uploadVidBtn").removeClass("disabled");
+              $(".btn-toolbar").hide();
+            }
+            $("#optionsSwitchConfirmationModal").hide();
+          }
+        });
+
+        $("#linkBtn").click(() => {
+          $("#embedFormHeader").text("Embed Link");
+          $("#embedLinkModal").show();
+        });
+
+        $("#uploadImageButton").click(() => {
+          $("#articleImgUploadInput").click();
+        });
+
+        $("#embedImageBtn").click(() => {
+          $("#embedFormHeader").text("Embed Image");
+          $("#embedLinkModal").show();
+        });
+
+        $("#embedVideoBtn").click(() => {
+          $("#embedFormHeader").text("Embed Video");
+          $(".link_label").hide();
+          $("#linkLabel").prop("required", false);
+          $("#embedLinkModal").show();
+        });
+
+        $("#embedLinkForm").submit((e) => {
+          e.preventDefault();
+          if($("#embedFormHeader").text().indexOf("Link") > -1) {
+            $("#postTxtArea").append("<a href=\"" + $("#link").val().trim() + "\">" + $("#linkLabel").val().trim() + "</a>");
+          } else if($("#embedFormHeader").text().indexOf("Image") > -1) {
+            $("#postTxtArea").append("<br><img src=\"" + $("#link").val().trim() + "\" alt=\"" + $("#linkLabel").val().trim() + "\"><br><br>");
+          } else if($("#embedFormHeader").text().indexOf("Video") > -1) {
+            $("#postTxtArea").append("<br><div style='text-align: center;'><video src=\"" + $("#link").val().trim() + "\" controls></video></div><br><br>");
+            $(".link_label").show();
+            $("#linkLabel").prop("required", true);
+          }
+
+          $("#link").val("");
+          $("#linkLabel").val("");
+          $("#embedLinkModal").hide();
+        });
+
+        $("#loaderPercen").show();
+
+        let reader = new FileReader();
+        $("#imgUploadInput").change(function(evt) {
+          if (this.files && this.files[0]) {
+            reader.onload = function(e) {
+              $("#vidPreview").hide();
+              $("#uploadOptionsBtns").hide();
+              $("#uploadPreview").show();
+              $("#imgPreview").show();
+              $("#previewBtn, #clearBtn").css("display", "flex");
+              $("#uploadedImgPreview").attr("src", e.target.result);
+            }
+            reader.readAsDataURL(this.files[0]); // convert to base64 string
+
+            selectedImgOrVid = this.files[0];
+            isSelectedImg = true;
+          }
+        });
+
+        $("#vidUploadInput").change(function() {
+          if (this.files && this.files[0]) {
+            reader.onload = function(e) {
+              $("#imgPreview").hide();
+              $("#uploadOptionsBtns").hide();
+              $("#uploadPreview").show();
+              $("#vidPreview").show();
+              $("#previewBtn, #clearBtn").css("display", "flex");
+              $("#uploadedVidPreview").attr("src", e.target.result)
+
+              document.getElementById("uploadedVidPreview").onloadedmetadata = function() {
+                document.getElementById("uploadedVidPreview").currentTime = 0.5;
+                document.getElementById("uploadedVidPreview").setAttribute('preload', "auto");
+              };
+            }
+            reader.readAsDataURL(this.files[0]); // convert to base64 string
+
+            selectedImgOrVid = this.files[0];
+            isSelectedImg = false;
+          }
+        });
+
+        let articleImagesForUpload = {};
+
+        $("#articleImgUploadInput").change(function() {
+          if (this.files && this.files[0]) {
+            let imgKey = 'img_' + Object.keys(articleImagesForUpload).length;
+            reader.onload = function(e) {
+              $("#postTxtArea").append("<br><img src=\"" + e.target.result + "\" alt=\"" + $("#linkLabel").val().trim() + "\" data-img-id=\"" + imgKey + "\"><br><br>");
+            }
+
+            articleImagesForUpload[imgKey] = this.files[0];
+            reader.readAsDataURL(this.files[0]); // convert to base64 string
+          }
+        });
+
+        $("#removeSelectedImage").click(() => {
+          $("#uploadedImgPreview").removeAttr("src");
+          $("#imgPreview").hide();
+          $("#uploadPreview").hide();
+          $("#imgUploadInput").val(null);
+          $("#uploadOptionsBtns").show();
+
+          selectedImgOrVid = null;
+
+          if($("#postTxtArea").html().length == 0) {
+            $("#previewBtn, #clearBtn").hide();
+          }
+
+        });
+
+        $("#removeSelectedVideo").click(() => {
+          $("#uploadedVidPreview").removeAttr("src");
+          $("#vidPreview").hide();
+          $("#uploadPreview").hide();
+          $("#vidUploadInput").val(null);
+          $("#uploadOptionsBtns").show();
+
+          selectedImgOrVid = null;
+
+          if($("#postTxtArea").html().length == 0) {
+            $("#previewBtn, #clearBtn").hide();
+          }
+        });
+
+        $(document).on("keyup", e => {
+          if($(e.target).attr("id") == "postTxtArea") {
+            if($("#postTxtArea").html().length > 0) {
+              if($("#previewBtn, #clearBtn").css("display") == "none") {
+                $("#previewBtn, #clearBtn").css("display", "flex");
+              }
+            } else if ($("#postTxtArea").html().length == 0 && $("#uploadPreview").css("display") == "none") {
+              $("#previewBtn, #clearBtn").hide();
+            }
+          }
+        });
+
+        $("#clearBtn").click(() => {
+          isSelectedImg ? $("#uploadedImgPreview").removeAttr("src") : $("#uploadedVidPreview").removeAttr("src");
+          $("#vidPreview, #imgPreview").hide();
+          $("#uploadPreview").hide();
+          $("#imgUploadInput, #vidUploadInput").val(null);
+          $("#name").val("");
+          $("#postTxtArea").html("").show();
+          $("#uploadOptionsBtns").show();
+
+          let postTags = [];
+          $.each($("#tagsSelector .tag-text"), (index, tag) => postTags.push($(tag).text()));
+
+          for(let i = 0; i < postTags.length; i++) {
+            $('#form-tags-4').removeTag(postTags[i]);
+          }
+
+          $("#previewBtn, #clearBtn").hide();
+          selectedImgOrVid = null;
+          selectedPostForEdit = "";
+        });
+
+        $("#previewBtn").click(() => {
+          let postType = selectedPostForEdit == "" ? "" : categoryPosts[selectedPostForEdit].type;
+
+          if (postType == "") {
+            if($("#articleBtn").parent().hasClass("active")) {
+              postType = "article";
+            } else {
+              if((selectedImgOrVid != null) && ($("#postTxtArea").html().length > 0) && isSelectedImg) {
+                postType = "imgTxt";
+              } else if((selectedImgOrVid != null) && ($("#postTxtArea").html().length > 0) && !isSelectedImg) {
+                postType = "vidTxt";
+              } else if((selectedImgOrVid != null) && !isSelectedImg) {
+                postType = "vid";
+              } else if((selectedImgOrVid != null) && isSelectedImg) {
+                postType = "img";
+              } else {
+                postType = "txt";
+              }
+            }
+          }
+
+          sessionStorage.setItem("postName", $("#name").val());
+          sessionStorage.setItem("postType", postType);
+          sessionStorage.setItem("postContent", "<div dir=" + ($("#postTxtArea").attr("dir") == "rtl" ? "rtl" : "ltr") + ">" + $("#postTxtArea").html() + "</div>");
+          sessionStorage.setItem("postContentMedia", isSelectedImg ? $("#uploadedImgPreview").attr("src") : $("#uploadedVidPreview").attr("src"));
+
+          window.open("{% url 'postPreview' %}", '_blank');
+        });
+
+        $("#saveBtn").click(() => {
+          if(!$("#newPostForm")[0].checkValidity()) {
+            $("#newPostForm input[type='submit']").click();
+          } else {
+            $("#overlayLoader").css("display", "flex");
+            let postKey = selectedPostForEdit == "" ? database.ref().child('content/posts/').push().key : selectedPostForEdit;
+
+            let postType = "article";
+
+            if($("#articleBtn").parent().hasClass("active")) {
+              postType = "article";
+            } else {
+              if((selectedImgOrVid != null) && ($("#postTxtArea").html().length > 0) && isSelectedImg) {
+                postType = "imgTxt";
+              } else if((selectedImgOrVid != null) && ($("#postTxtArea").html().length > 0) && !isSelectedImg) {
+                postType = "vidTxt";
+              } else if((selectedImgOrVid != null) && !isSelectedImg) {
+                postType = "vid";
+              } else if((selectedImgOrVid != null) && isSelectedImg) {
+                postType = "img";
+              } else {
+                postType = "txt";
+              }
+            }
+
+            function dataURLtoFile(dataurl, filename) {
+              var arr = dataurl.split(','),
+                  mime = arr[0].match(/:(.*?);/)[1],
+                  bstr = atob(arr[1]),
+                  n = bstr.length,
+                  u8arr = new Uint8Array(n);
+
+              while(n--){
+                  u8arr[n] = bstr.charCodeAt(n);
+              }
+
+              return new File([u8arr], filename, {type:mime});
+            }
+
+            function savePost(downloadURL, minifiedDownloadURL) {
+              let postTags = [];
+              $.each($("#tagsSelector .tag-text"), (index, tag) => postTags.push($(tag).text()));
+
+              $.ajax({
+                    type: "POST",
+                    url: "{% url 'categoryDash' 123456 %}".replace(/123456/, categoryID),
+                    data: {
+                      reqType : "add",
+                      key : postKey,
+                      type : postType,
+                      name : $("#name").val(),
+                      link : downloadURL,
+                      minLink: minifiedDownloadURL,
+                      text : "<div dir=" + ($("#postTxtArea").attr("dir") == "rtl" ? "rtl" : "ltr") + ">" + $("#postTxtArea").html() + "</div>",
+                      textNoTags: $("#postTxtArea").text(),
+                      timestamp : (new Date()).getTime(),
+                      newTags: JSON.stringify(postTags),
+                      oldTags: selectedPostForEdit != "" ? JSON.stringify(categoryPosts[selectedPostForEdit]['tags']) : [],
+                      csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: (response) => {
+                      if(response.result == "success") {
+                        categoryPosts[response.postKey] = response.post;
+
+                        $("#overlayLoader").hide();
+                        isSelectedImg ? $("#uploadedImgPreview").removeAttr("src") : $("#uploadedVidPreview").removeAttr("src");
+                        $("#vidPreview, #imgPreview").hide();
+                        $("#uploadPreview").hide();
+                        $("#imgUploadInput, #vidUploadInput").val(null);
+                        $("#name").val("");
+                        $("#postTxtArea").html("").show();
+                        $("#uploadOptionsBtns").show();
+
+                        for(let i = 0; i < postTags.length; i++) {
+                          $('#form-tags-4').removeTag(postTags[i]);
+                        }
+
+                        $("#previewBtn, #clearBtn").hide();
+                        selectedImgOrVid = null;
+
+                        populatePostsList();
+                      } else {
+                        alert("Failed to add post!");
+                        $("#overlayLoader").hide();
+                      }
+                    },
+                    error: (xhr, errmsg, err) => {
+                      console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+                  });
+              }
+
+              if(postType != "txt" && postType != "article") {
+                if(typeof(selectedImgOrVid) == "string" && selectedImgOrVid.indexOf("http") > -1) {
+                  savePost(selectedImgOrVid, "");
+                } else {
+                  let uploadTask = storageRef.child('content/posts/' + postKey + '.jpg').put(selectedImgOrVid);
+                  uploadTask.on('state_changed', function(snapshot){
+                    var progress = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(2);
+                    $("#loaderPercen").text(progress + '%');
+
+                  }, function(error) {
+                    console.log(error);
+                    // Handle unsuccessful uploads
+                  }, function() {
+                    if(isSelectedImg) {
+                      const image = document.getElementById("uploadedImgPreview");
+                      const aspectRatio = image.naturalWidth / image.naturalHeight;
+                      const newHeight = 20 * 1 / aspectRatio;
+
+                      var canvas = document.createElement("canvas");
+                      canvas.width = 20;
+                      canvas.height = newHeight;
+                      var ctx = canvas.getContext("2d");
+                      ctx.drawImage(image, 0, 0, 20, newHeight);
+                      //following two lines saves the image
+                      var minifiedImage = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+                      let minImageUploadTask = storageRef.child('content/posts/' + postKey + '_min.jpg').put(dataURLtoFile(minifiedImage, postKey + '_min'));
+                      minImageUploadTask.on('state_changed', function(snapshot){
+                        var progress = ((snapshot.bytesTransferred / snapshot.totalBytes) * 100).toFixed(2);
+                        $("#loaderPercen").text(progress + '%');
+
+                      }, function(error) {
+                        console.log(error);
+                        // Handle unsuccessful uploads
+                      }, function() {
+                        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                          minImageUploadTask.snapshot.ref.getDownloadURL().then(function(minifiedDownloadURL) {
+                            savePost(downloadURL, minifiedDownloadURL);
+                          });
+                        });
+                      });
+                    } else {
+                      uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                        savePost(downloadURL, "");
+                      });
+                    }
+
+                  });
+                }
+              } else {
+                if (postType == "article") {
+                  let articleImagesForUploadKeys = Object.keys(articleImagesForUpload);
+                  if (articleImagesForUploadKeys.length > 0) {
+                    for(let i = 0; i < articleImagesForUploadKeys.length; i++) {
+                      if (!($("#postTxtArea").html().includes(articleImagesForUploadKeys[i]))) {
+                        delete articleImagesForUpload[articleImagesForUploadKeys[i]];
+                      }
+                    }
+                  }
+
+                  articleImagesForUploadKeys = Object.keys(articleImagesForUpload);
+
+                  let uploadsRemaining = articleImagesForUploadKeys.length;
+
+                  if (uploadsRemaining > 0) {
+                    for(let i = 0; i < articleImagesForUploadKeys.length; i++) {
+                      let uploadTask = storageRef.child('content/posts/' + postKey + "_" + articleImagesForUploadKeys[i] + '.jpg').put(articleImagesForUpload[articleImagesForUploadKeys[i]]);
+                      uploadTask.on('state_changed', function(snapshot){}, function(error) {}, function() {
+                        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                          $("img[data-img-id='" + articleImagesForUploadKeys[i] + "']").attr("src", downloadURL);
+
+                          uploadsRemaining--;
+
+                          if (uploadsRemaining == 0) {
+                            savePost("", "");
+                          }
+                        });
+                      });
+                    }
+                  } else {
+                    savePost("", "");
+                  }
+                } else {
+                  savePost("", "");
+                }
+              }
+            }
+        });
+
+        function populatePostsList(){
+          $(".items_sec").html("");
+
+          let postIDs = Object.keys(categoryPosts);
+          postIDs.reverse();
+
+          postIDs.forEach((postID) => {
+            let post = categoryPosts[postID];
+
+            let item = document.createElement("div");
+            item.classList.add("item");
+
+            let itemContent = document.createElement("div");
+            itemContent.classList.add("item_content");
+            itemContent.setAttribute("data-item-content-post-id", postID);
+
+            itemContent.innerHTML += "<p>" + post.name + "</p>";
+
+            let itemDate = document.createElement("span");
+            itemDate.classList.add("item_date");
+
+            let timestamp = new Date(parseInt(post.timestamp));
+
+            itemDate.innerHTML = formatAMPM(timestamp) + "<br>" + timestamp.getDate() + " " + month[timestamp.getMonth()] + ", " + timestamp.getFullYear();
+
+            let itemIcons = document.createElement("div");
+            itemIcons.classList.add("item_icons");
+
+            let editBtn = document.createElement("img");
+            editBtn.setAttribute("src", "{% static 'site_admin/img/edit_icon.png' %}");
+            editBtn.setAttribute("alt", "edit");
+
+            editBtn.addEventListener("click", () => {
+              $("#overlayLoader").hide();
+              isSelectedImg ? $("#uploadedImgPreview").removeAttr("src") : $("#uploadedVidPreview").removeAttr("src");
+              $("#vidPreview, #imgPreview").hide();
+              $("#uploadPreview").hide();
+              $("#imgUploadInput, #vidUploadInput").val(null);
+              $("#name").val("");
+              $("#postTxtArea").html("").show();
+              $("#uploadOptionsBtns").show();
+              $("#previewBtn, #clearBtn").hide();
+              selectedImgOrVid = null;
+
+              selectedPostForEdit = postID;
+
+              let postTags = [];
+              $.each($("#tagsSelector .tag-text"), (index, tag) => postTags.push($(tag).text()));
+
+              for(let i = 0; i < postTags.length; i++) {
+                $('#form-tags-4').removeTag(postTags[i]);
+              }
+
+              if ("tags" in post) {
+                for(let i = 0 ; i < post.tags.length; i++) {
+                  $('#form-tags-4').addTag(post.tags[i]);
+                }
+              }
+
+              if(post.type == "txt" || post.type == "article") {
+                $("#postTxtArea").html(post.text);
+                $(".btn-toolbar").show();
+              } else if(post.type == "img") {
+                $("#vidPreview").hide();
+                $("#uploadOptionsBtns").hide();
+                $("#postTxtArea").show();
+                $("#uploadPreview").show();
+                $("#imgPreview").show();
+
+                $("#uploadedImgPreview").attr("src", post.link);
+
+                isSelectedImg = true;
+                selectedImgOrVid = post.link;
+              } else if(post.type == "vid") {
+                $("#imgPreview").hide();
+                $("#uploadOptionsBtns").hide();
+                $("#postTxtArea").html("").hide();
+                $("#uploadPreview").show();
+                $("#vidPreview").show();
+                $("#uploadedVidPreview").attr("src", post.link)
+
+                isSelectedImg = false;
+                selectedImgOrVid = post.link;
+              } else if(post.type == "imgTxt") {
+                $("#vidPreview").hide();
+                $("#uploadOptionsBtns").hide();
+                $("#postTxtArea").show();
+                $("#uploadPreview").show();
+                $("#imgPreview").show();
+                $("#uploadedImgPreview").attr("src", post.link);
+
+                $("#postTxtArea").text(post.text);
+
+                isSelectedImg = true;
+                selectedImgOrVid = post.link;
+                $("#name").val(post.name);
+              }  else if(post.type == "vidTxt") {
+                $("#imgPreview").hide();
+                $("#uploadOptionsBtns").hide();
+                $("#postTxtArea").html("").hide();
+                $("#uploadPreview").show();
+                $("#vidPreview").show();
+                $("#uploadedVidPreview").attr("src", post.link)
+
+                $("#postTxtArea").text(post.text);
+
+                isSelectedImg = false;
+                selectedImgOrVid = post.link;
+              }
+
+              if(categoryPosts[selectedPostForEdit]["type"] != "article") {
+                $("#articleBtn").css("padding", "10px");
+                $("#uploadImgBtn").removeClass("disabled");
+                $("#uploadVidBtn").removeClass("disabled");
+                $("#articleBtn").parent().removeClass("active");
+                $(".btn-toolbar").hide();
+              } else {
+                $("#articleBtn").parent().addClass("active");
+                $("#articleBtn").css("padding", "9px");
+                $("#uploadImgBtn").addClass("disabled");
+                $("#uploadVidBtn").addClass("disabled");
+                $(".btn-toolbar").show();
+              }
+
+              $("#optionsSwitchConfirmationModal").hide();
+              $("#name").val(post.name);
+              $("#previewBtn, #clearBtn").css("display", "flex");
+
+              populateSelectedPostTagsList();
+            });
+
+            let deleteBtn = document.createElement("img");
+            deleteBtn.setAttribute("src", "{% static 'site_admin/img/del_icon.png' %}");
+            deleteBtn.setAttribute("alt", "delete");
+            deleteBtn.setAttribute("name", "delete_post_" + postID);
+            deleteBtn.setAttribute("data-category", categoryID);
+
+            deleteBtn.addEventListener("click", function() {
+              $("#confirmPostDeletionBtn").attr("name", $(this).attr("name").replace("delete_post_", ""));
+              $("#confirmPostDeletionBtn").attr("data-category", $(this).attr("data-category"));
+              $("#postDeletionConfirmationModal").show();
+            });
+
+            $("#confirmPostDeletionBtn").click(function() {
+              if($(this).attr("data-category") == "{{ categoryID | safe }}" && $(this).attr("name") != "") {
+                let thisPostID = $(this).attr("name");
+                let thisCategoryID = $(this).attr("data-category");
+                $("#confirmPostDeletionBtn").attr("name", "");
+                if(thisPostID != "") {
+                  $("#confirmPostDeletionBtn").attr("name", "");
+                  $("#overlayLoader").css("display", "flex");
+                  $("#postDeletionConfirmationModal").hide();
+                  $.ajax({
+                    type: "POST",
+                    url: "{% url 'categoryDash' 123456 %}".replace(/123456/, thisCategoryID),
+                    data: {
+                      reqType : "delete",
+                      key : thisPostID,
+                      csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: (response) => {
+                      $("#overlayLoader").hide();
+                      if(response.result == "success") {
+                        delete categoryPosts[response.postKey];
+
+                        populatePostsList();
+                      } else {
+                        alert("Failed to remove post!");
+                      }
+                    },
+                    error: (xhr, errmsg, err) => {
+                      $("#overlayLoader").hide();
+                      console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                    }
+                  });
+                }
+              }
+            });
+
+            itemIcons.appendChild(editBtn);
+            itemIcons.appendChild(deleteBtn);
+
+            item.appendChild(itemContent);
+            item.appendChild(itemDate);
+            item.appendChild(itemIcons);
+
+            $(itemContent).html($(itemContent).text());
+
+            document.getElementsByClassName("items_sec")[0].appendChild(item);
+          });
+        }
+
+        populatePostsList();
+
+        function populateSelectedPostTagsList(){
+          const postTags = categoryPosts[selectedPostForEdit]["tags"];
+
+          for(let i = 0 ; i < postTags.length; i++) {
+            //$("#form-tags-4_addTag").before("<span class='tag'><span class='tag-text'>" + postTags[i] + "</span><button class='tag-remove'></button></span>");
+            $('#form-tags-4').addTag(postTags[i]);
+          }
+        }
+
+        function formatAMPM(date) {
+          let hours = date.getHours();
+          let minutes = date.getMinutes();
+          let ampm = hours >= 12 ? 'PM' : 'AM';
+          hours = hours % 12;
+          hours = hours ? hours : 12; // the hour '0' should be '12'
+          minutes = minutes < 10 ? '0'+minutes : minutes;
+          var strTime = hours + ':' + minutes + ' ' + ampm;
+          return strTime;
+        }
+      });
+    </script>
+  </body>
+</html>

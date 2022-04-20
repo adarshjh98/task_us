@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0 auto;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Poppins";
+}
+
+body,
+html {
+  height: 100%;
+}
+
+#main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 22% auto;
+}
+
+#main_dashboard {
+  height: 100%;
+  background-color: #f5f4f9;
+  border-top-left-radius: 10px;
+  padding: 100px 20% 50px 80px;
+}
+
+.sec_header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(164, 161, 161, 0.1);
+}
+
+.Edit_btn {
+  color: #a4a1a1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.user_info {
+  margin-top: 30px;
+  margin-bottom: 60px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgba(164, 161, 161, 0.1);
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr 1fr 1fr;
+  column-gap: 10px;
+}
+
+.user_info > p {
+  width: 100%;
+  color: #a4a1a1;
+  font-size: 15px;
+  margin-top: 15px;
+  overflow-wrap: anywhere;
+}
+
+.sec_label > p {
+  width: 100%;
+}
+
+.sec_label > p:nth-child(3) {
+  width: 40%;
+}
+
+.categories_boxes {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+  column-gap: 5vw;
+}
+
+.cat_box {
+  width: 210px;
+  height: 165px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.cat_delete_btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: none;
+}
+
+.box_icon {
+  margin-bottom: 10px;
+  width: 25%;
+}
+
+.cat_box:nth-child(1) {
+  background-color: #a27dcd;
+}
+
+.cat_box:nth-child(2) {
+  background-color: #ef6f42;
+}
+
+.cat_box:nth-child(3) {
+  background-color: #8abf6f;
+}
+
+.cat_box:nth-child(4) {
+  background-color: #7fadde;
+}
+
+.cat_box:nth-child(5) {
+  background-color: #bf6fac;
+}
+
+.cat_box:nth-child(6) {
+  background-color: #d5d05b;
+}
+
+.external_login_link {
+  user-select: none;
+  cursor: pointer;
+}
+
+#dashboardContent {
+  height: 100%;
+}

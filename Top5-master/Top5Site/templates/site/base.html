@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Irantop5" />
+    <meta property="og:type" content="website"  />
+    <meta property="og:image" content="https://firebasestorage.googleapis.com/v0/b/top-50-9951b.appspot.com/o/ic_launcher.png?alt=media&token=beaf0354-4df6-4723-b000-90f241d4e2df" />
+    <meta property="og:image:alt" content="Iran Top 5 logo" />
+    <meta property="og:url" content="https://irantop.com" />
+    <meta property="og:description" content="Iranian recommendation website"/>
+    
+    <link rel="stylesheet" href="{% static 'site/css/site.css' %}" />
+    <link rel="stylesheet" href="{% static 'site/css/file_upload.css' %}" />
+    <link rel="stylesheet" href="{% static 'site/css/carousel.css' %}" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="{% static 'site/css/sidebar.css' %}" />
+    <link rel="stylesheet" href="{% static 'site/css/loader.css' %}" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.css">
+    <script src="https://cdn.jsdelivr.net/npm/progressive-image.js/dist/progressive-image.js"></script>
+
+    <script src="{% static 'site/js/jquery-3.5.1.min.js' %}"></script>
+    {% comment %} <script src="https://kit.fontawesome.com/3f3cde0f51.js" crossorigin="anonymous"></script> {% endcomment %}
+
+    <script data-ad-client="ca-pub-4286063614656441" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script src="{% static 'site/js/scroll-top.js' %}"></script>
+    <script>
+      function setCategoryIconBackground(categoryID, color) {
+        $('[name="category_' + categoryID + '"').css(
+          "background",
+          "" + color + ""
+        );
+      }
+
+      function setInterestIconBackground(interestID, color) {
+        $('[name="interest_' + interestID + '"').css(
+          "background",
+          "" + color + ""
+        );
+      }
+
+      function timeSince(date) {
+        var seconds = Math.floor((new Date() - date) / 1000);
+
+        var interval = seconds / 31536000;
+
+        if (interval > 1) {
+          return Math.floor(interval) + "Y";
+        }
+        interval = seconds / 2592000;
+        if (interval > 1) {
+          return Math.floor(interval) + "M";
+        }
+        interval = seconds / 86400;
+        if (interval > 1) {
+          return Math.floor(interval) + "d";
+        }
+        interval = seconds / 3600;
+        if (interval > 1) {
+          return Math.floor(interval) + "hr";
+        }
+        interval = seconds / 60;
+        if (interval > 1) {
+          return Math.floor(interval) + "m";
+        }
+        return Math.floor(seconds) + "s";
+      }
+    </script>
+  </head>
+  <body>
+    <div id="postCommentDeletionConfirmationModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal_title">
+          <p>{% if lang == 'en'%}{{ staticTextMap.comment_deletion_confirmation_heading_en }}{% else %}{{ staticTextMap.comment_deletion_confirmation_heading_fa }}{% endif %}</p>
+          <span
+            id="postCommentDeletionConfirmationModalClose"
+            class="close"
+            onclick="$('#postCommentDeletionConfirmationModal').hide();"
+            ><img src="{% static 'site/img/delete_circle.png' %}"
+          /></span>
+        </div>
+        <div class="container">
+          <p class="modal-message" {% if lang != 'en' %}style="direction: rtl;"{% endif %}>
+            {% if lang == 'en'%}{{ staticTextMap.comment_deletion_confirmation_message_en }}{% else %}{{ staticTextMap.comment_deletion_confirmation_message_fa }}{% endif %}
+          </p>
+
+          <div class="button_grid">
+            <button
+              id="cancelCommentDeletionBtn"
+              onclick="$('#postCommentDeletionConfirmationModal').hide();"
+            >
+              {% if lang == 'en' %}{{ staticTextMap.comment_deletion_confirmation_option_no_en }}{% else %}{{ staticTextMap.comment_deletion_confirmation_option_no_fa }}{% endif %}
+            </button>
+            <button id="confirmCommentDeletionBtn" class="modal_button">
+              {% if lang == 'en' %}{{ staticTextMap.comment_deletion_confirmation_option_yes_en }}{% else %}{{ staticTextMap.comment_deletion_confirmation_option_yes_fa }}{% endif %}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'site/partials/_header.html' %}
+
+    <div id="loadedPage">{% block content %} {% endblock %}</div>
+  </body>
+   {% include 'site/partials/_footer.html' %}
+</html>

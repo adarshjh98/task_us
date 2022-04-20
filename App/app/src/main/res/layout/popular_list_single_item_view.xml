@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="E, 1:1"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/itemImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/popular_list_item_border_box"
+                android:padding="1dp"
+                android:scaleType="centerCrop"
+                app:riv_corner_radius="30dp"
+                android:alpha="0.5"/>
+
+            <View
+                android:id="@+id/item_name_top_gap"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@null"
+                app:layout_constraintDimensionRatio="W, 0.065:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@null"
+                android:fontFamily="@font/titillium_medium"
+                android:includeFontPadding="false"
+                android:text="Grow Aloe vera"
+                android:textAlignment="center"
+                android:textColor="#000"
+                app:autoSizeMaxTextSize="13sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="0.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_name_top_gap" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

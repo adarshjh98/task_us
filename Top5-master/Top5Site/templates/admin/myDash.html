@@ -1,0 +1,358 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'site_admin/css/myDash.css' %}" />
+  </head>
+  <body>
+    <div id="main_dashboard">
+      <div class="personal_info">
+        <div class="sec_header">
+          <p>Personal Information</p>
+          <span id="personalInfoEditBtn" class="Edit_btn">Edit</span>
+        </div>
+        <div class="user_info">
+          <p>Username</p>
+          <p>Email</p>
+          <p>Password</p>
+          <p>Confirm Password</p>
+          <p id="infoUsername" name="personal_info_field">{{ admin.name }}</p>
+          <p id="infoEmail" name="personal_info_field">{{ admin.email }}</p>
+          <p id="infoPassword" name="personal_info_field">******</p>
+          <p id="infoConfirmPassword" name="personal_info_field">******</p>
+        </div>
+      </div>
+      <div class="Categories_sec">
+        <div class="sec_header">
+          <p>Categories to Post</p>
+        </div>
+        <div class="categories_boxes"></div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(() => {
+        let user = "{{ admin | safe }}";
+        user = user.replace(/'/g, '"');
+        user = JSON.parse(user);
+
+        let categories = "{{ categories | safe }}";
+        categories = categories.replace(/'/g, '"');
+        categories = JSON.parse(categories);
+
+        let selectedCategoryForDeletion = "";
+
+        let categoryIDs = Object.keys(categories);
+
+        categoryIDs.forEach((id) => {
+          if ($("#addCategoryBtn").length > 0) {
+            $(
+              "<div class='cat_box' name='" +
+                id +
+                "' style='background-color: " +
+                categories[id].color +
+                "'><div class='cat_delete_btn' name='cat_delete_" +
+                id +
+                "'><img src=\"{% static 'site_admin/img/delete_circle.png' %}\" height=25 /></div><img src='" +
+                categories[id].imgURL +
+                "' alt='icon' class='box_icon'/><p>" +
+                categories[id].name +
+                "</p></div>"
+            ).insertBefore("#addCategoryBtn");
+
+            $("[name='cat_delete_" + id + "']").show();
+          } else {
+            $(".categories_boxes").append(
+              "<div class='cat_box' name='" +
+                id +
+                "' style='background-color: " +
+                categories[id].color +
+                "'><div class='cat_delete_btn' name='cat_delete_" +
+                id +
+                "'><img src=\"{% static 'site_admin/img/delete_circle.png' %}\" height=25 /></div><img src='" +
+                categories[id].imgURL +
+                "' alt='icon' class='box_icon'/><p>" +
+                categories[id].name +
+                "</p></div>"
+            );
+          }
+          $("[name='" + id + "']").click((e) => {
+            if (
+              $(e.target).closest("[name='cat_delete_" + id + "']").length > 0
+            ) {
+              selectedCategoryForDeletion = id;
+              $(".delete_category_name").text(categories[id].name);
+              $("#deleteConfirmationModal").show();
+            } else if (
+              $(".category_icon").attr("src") !=
+              "{% static 'site_admin/img/category_icon_clicked.png' %}"
+            ) {
+              categoryDashboard(id, categories[id].name);
+            }
+          });
+        });
+        $("#loaderPercen").hide();
+
+        $("#personalInfoEditBtn").click(() => {
+          if ($("#personalInfoEditBtn").text() == "Edit") {
+            $("#personalInfoEditBtn").text("Save");
+            $("[name='personal_info_field']")
+              .attr("contenteditable", true)
+              .css("color", "black");
+            $("#infoPassword, #infoConfirmPassword").text("");
+          } else {
+            $("#loader").css("display", "flex");
+            savePersonalInfo();
+          }
+        });
+
+        $("#deleteBtn").click(() => {
+          $("#deleteDefaultLayout").hide();
+          $("#deletePassworInputLayout").show();
+        });
+
+        $("#deleteCategoryPasswordForm").unbind();
+        $("#deleteCategoryPasswordForm").submit((e) => {
+          e.preventDefault();
+
+          $("#overlayLoader").css("display", "flex");
+
+          validatePassword($("#deleteConfirmationPassword").val());
+        });
+
+        $("#uploadCategoryIconBtn").click(() => {
+          $("#categoryIcon").click();
+        });
+
+        let selectedIcon;
+        let reader = new FileReader();
+        $("#categoryIcon").change(function (evt) {
+          if (this.files && this.files[0]) {
+            reader.onload = function (e) {
+              $("#iconSelected").show();
+              selectedIcon = e.target.result.substring(22);
+            };
+            reader.readAsDataURL(this.files[0]); // convert to base64 string
+          }
+        });
+
+        function savePersonalInfo() {
+          if ($("#infoPassword").text() == $("#infoConfirmPassword").text()) {
+            $.ajax({
+              type: "POST",
+              url: "{% url 'myDash' %}",
+              data: {
+                type: "profileUpdate",
+                username: $("#infoUsername").text(),
+                email: $("#infoEmail").text(),
+                password: $("#infoPassword").text(),
+                isNameUpdated: $("#infoUsername").text() != user.name,
+                isEmailUpdated: $("#infoEmail").text() != user.email,
+                isPasswordUpdated: $("#infoPassword").text().length > 0,
+                csrfmiddlewaretoken: "{{ csrf_token }}",
+              },
+              success: (response) => {
+                $("#loader").hide();
+                if (response.result == "success") {
+                  user.name = $("#infoUsername").text();
+                  user.email = $("#infoEmail").text();
+
+                  $(".profile_name").text(user.name);
+                  $(".profile_email").text(user.email);
+
+                  $("#personalInfoEditBtn").text("Edit");
+                  $("[name='personal_info_field']")
+                    .attr("contenteditable", false)
+                    .css("color", "#a4a1a1");
+                  $("#infoPassword, #infoConfirmPassword").text("******");
+                } else {
+                  $("#infoUsername").text(user.name);
+                  $("#infoEmail").text(user.email);
+                }
+                $("#loader").hide();
+              },
+              error: (xhr, errmsg, err) => {
+                $("#loader").hide();
+                alert("Failed to update info!");
+                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+              },
+            });
+          } else {
+            alert("Password and Confirm Password must be the same.");
+          }
+        }
+
+        function validatePassword(password) {
+          $(".status_message").hide();
+
+          $.ajax({
+            type: "POST",
+            url: "{% url 'myDash' %}",
+            data: {
+              type: "validatePassword",
+              email: user.email,
+              password: password,
+              csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+            success: (response) => {
+              if (response.result == "success") {
+                deleteCategory();
+              } else {
+                $("#overlayLoader").hide();
+                $(".status_message")
+                  .text("Invalid Password")
+                  .css("color", "#ff5858")
+                  .show();
+              }
+            },
+          });
+        }
+
+        const allowedKeyChars =
+          "-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz";
+        $("#categoryName").unbind();
+        $("#categoryName").on("input", function () {
+          let name = $(this).val();
+
+          if (name.length > 0) {
+            if (allowedKeyChars.indexOf(name.charAt(name.length - 1)) == -1) {
+              $("#categoryName").val(name.substr(0, name.length - 1));
+            }
+          }
+        });
+
+        $("#addNewCategoryForm").submit((e) => {
+          e.preventDefault();
+
+          if (validateCategoryName() && selectedIcon != null) {
+            $("#overlayLoader").css("display", "flex");
+
+            $.ajax({
+              type: "POST",
+              url: "{% url 'myDash' %}",
+              data: {
+                type: "addCategory",
+                name: $("#categoryName").val().trim(),
+                color: $("#categoryColor").val(),
+                icon: selectedIcon,
+                csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+              },
+              success: (response) => {
+                $("#iconSelected").hide();
+                $("#overlayLoader").hide();
+                if (response.result == "success") {
+                  categories[response.category.id] = response.category;
+
+                  $("#categoryName").val("");
+                  $("#categoryColor").val("#0f395e");
+                  selectedIcon = null;
+
+                  $("#addNewCategoryModal").hide();
+                  $(
+                    "<div class='cat_box' name='" +
+                      response.category.id +
+                      "' style='background-color: " +
+                      response.category.color +
+                      "'><div class='cat_delete_btn' style='display:block;' name='cat_delete_" +
+                      response.category.id +
+                      "'><img src=\"{% static 'site_admin/img/delete_circle.png' %}\" height=25 /></div><img src='" +
+                      response.category.imgURL +
+                      "' alt='icon' class='box_icon'/><p>" +
+                      response.category.name +
+                      "</p></div>"
+                  ).insertBefore("#addCategoryBtn");
+
+                  $("[name='" + response.category.id + "']").click((e) => {
+                    if (
+                      $(e.target).closest(
+                        "[name='cat_delete_" + response.category.id + "']"
+                      ).length > 0
+                    ) {
+                      selectedCategoryForDeletion = response.category.id;
+                      $(".delete_category_name").text(
+                        categories[response.category.id].name
+                      );
+                      $("#deleteConfirmationModal").show();
+                    } else if (
+                      $(".category_icon").attr("src") !=
+                      "{% static 'site_admin/img/category_icon_clicked.png' %}"
+                    ) {
+                      categoryDashboard(
+                        response.category.id,
+                        categories[response.category.id].name
+                      );
+                    }
+                  });
+                } else {
+                  alert("Failed to add category!");
+                }
+              },
+            });
+          }
+        });
+
+        function deleteCategory() {
+          $(".status_message").hide();
+          $("#overlayLoader").hide();
+
+          selectedCategoryForDeletion = selectedCategoryForDeletion.trim();
+
+          console.log(selectedCategoryForDeletion);
+
+          $.ajax({
+            type: "POST",
+            url: "{% url 'myDash' %}",
+            data: {
+              type: "deleteCategory",
+              category_id: selectedCategoryForDeletion,
+              csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+            },
+            success: (response) => {
+              $("#overlayLoader").hide();
+              if (response.result == "success") {
+                $("[name='" + selectedCategoryForDeletion + "']").remove();
+
+                delete categories[selectedCategoryForDeletion];
+                $("#iconSelected").hide();
+                $("#deleteConfirmationPassword").val("");
+                $(".status_message").hide();
+                $("#deleteDefaultLayout").show();
+                $("#deletePassworInputLayout").hide();
+                $("#deleteConfirmationModal").hide();
+              } else {
+                $(".status_message")
+                  .text("Failed to delete category!")
+                  .css("color", "#ff5858")
+                  .show();
+              }
+            },
+          });
+        }
+
+        function validateCategoryName() {
+          const name = $("#categoryName").val();
+
+          if (name.length > 0) {
+            for (let i = 0; i < name.length; i++) {
+              if (allowedKeyChars.indexOf(name.charAt(i)) == -1) {
+                alert(
+                  "Invalid category name. It can only contain: [-, _, 0 to 9, A to Z, a to z]"
+                );
+                return false;
+              }
+            }
+          } else {
+            return false;
+          }
+
+          return true;
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.main.UserPrefFragment">
+
+        <View
+            android:id="@+id/search_bar_top_gap"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="W, 0.04:1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/searchBar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/search_bar_background"
+            app:layout_constraintDimensionRatio="W, 0.107:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_bar_top_gap"
+            app:layout_constraintWidth_percent="0.81">
+
+            <EditText
+                android:id="@+id/searchInput"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@null"
+                android:fontFamily="@font/titillium_regular"
+                android:hint="@string/search_txt_placeholder"
+                android:includeFontPadding="false"
+                android:inputType="text|textNoSuggestions"
+                android:textColorHint="@color/colorHint"
+                android:textSize="12sp"
+                android:visibility="gone"
+                app:autoSizeMaxTextSize="12sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="0.8sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toStartOf="@+id/search_input_end_gap"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/search_input_end_gap"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.445"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/searchBtn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="15dp"
+                android:background="@null"
+                android:src="@drawable/search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.445"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/ins_top_gap"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/insTxt"
+            app:layout_constraintHeight_percent="0.028"
+            app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+
+        <TextView
+            android:id="@+id/insTxt"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/titillium_medium"
+            android:includeFontPadding="false"
+            android:text="@string/user_pref_ins"
+            android:textAlignment="center"
+            android:textColor="#000"
+            app:autoSizeMaxTextSize="19sp"
+            app:autoSizeStepGranularity="1.5sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintDimensionRatio="W, 0.2:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ins_top_gap"
+            app:layout_constraintWidth_percent="0.556" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loadedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/insTxt">
+
+            <View
+                android:id="@+id/categories_grid_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.037"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoriesGrid"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toTopOf="@+id/categories_grid_bottom_gap"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categories_grid_top_space"
+                app:layout_constraintWidth_percent="0.627" />
+
+            <View
+                android:id="@+id/categories_grid_bottom_gap"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/saveBtn"
+                app:layout_constraintHeight_percent="0.024" />
+
+            <Button
+                android:id="@+id/saveBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:alpha="0.4"
+                android:background="@drawable/round_rect_with_ripple"
+                android:enabled="false"
+                android:fontFamily="@font/titillium_medium"
+                android:text="@string/save"
+                android:textColor="@color/colorAccent"
+                app:autoSizeMaxTextSize="18sp"
+                app:autoSizeMinTextSize="15sp"
+                app:autoSizeStepGranularity="0.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/save_btn_bottom_gap"
+                app:layout_constraintDimensionRatio="H, 1:0.18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintWidth_percent="0.542" />
+
+            <View
+                android:id="@+id/save_btn_bottom_gap"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent="0.024" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loadingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/insTxt">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:indeterminate="true"
+                android:theme="@style/ProgressBar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/titillium_medium"
+                android:includeFontPadding="false"
+                android:text="@string/loading"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                app:autoSizeMaxTextSize="19sp"
+                app:autoSizeStepGranularity="1.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/progressBarHolder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.4"
+            android:animateLayoutChanges="true"
+            android:background="#000000"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:indeterminate="true" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

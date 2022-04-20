@@ -1,0 +1,446 @@
+{% extends 'site/base.html' %} {% load static %} {% block content %}
+
+<style>
+  .lds-default {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .lds-default div {
+    background: white;
+  }
+</style>
+
+<div id="overlayLoader">
+  <div class="lds-default">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="user_profile_page">
+  <h2 {% if lang != 'en' %}style="text-align: right;"{% endif %}>{% if lang == 'en' %}{{ staticTextMap.profile_heading_user_profile_en }}{% else %}{{ staticTextMap.profile_heading_user_profile_fa }}{% endif %}</h2>
+  <div class="profile">
+    {% comment %} <span id="editProfileBtn" {% if lang != 'en' %}style="align-self: flex-start;"{% endif %}>{% if lang == 'en' %}{{ staticTextMap.profile_option_edit_information_en }}{% else %}{{ staticTextMap.profile_option_edit_information_fa }}{% endif %}</span> {% endcomment %}
+    <div class="profile_content">
+      <div class="profile_img_container">
+        <div class="profile_img">
+          <img
+                  {% if userDetails.profilePhoto %}
+                    src="{{userDetails.profilePhoto}}"
+                  {% else %}
+                    src="{% static 'site/img/user_avatar.png' %}"
+                  {% endif %}
+
+                data-default-photo="{% static 'site/img/user_avatar.png' %}"
+           alt="profilepic" />
+        </div>
+        <span id="userName" class="profile_name">{{ userDetails.name}}</span>
+        <span id="userEmail" class="profile_email"
+          >{{ userDetails.email }}</span>
+
+        <br/>
+        <button id="remove_photo" class="upload-button remove-photo hide-button"><i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Remove photo</button>
+
+
+         <label class="upload-button upload-file-label hide-button" for="upload_photo">
+          <i class="fa fa-upload"></i>&nbsp;&nbsp;
+           Choose a file
+           <input type="file" id="upload_photo" class="inputfile"  accept="image/*" />
+         </label>
+
+
+      </div>
+      <div class="profile_details">
+        {% comment %} <div class="gender">
+          <h4>{% if lang == 'en' %}{{ staticTextMap.profile_sub_heading_gender_en }}{% else %}{{ staticTextMap.profile_sub_heading_gender_fa }}{% endif %}</h4>
+          <p id="userGender">{{ userDetails.gender }}</p>
+        </div>
+        <div class="bio">
+          <h4>{% if lang == 'en' %}{{ staticTextMap.profile_sub_heading_bio_en }}{% else %}{{ staticTextMap.profile_sub_heading_bio_fa }}{% endif %}</h4>
+          <p id="userBio">{{ userDetails.description }}</p>
+        </div> {% endcomment %}
+        <div class="interests">
+          {% if interests|length > 0 %}
+            <h4>{% if lang == 'en' %}{{ staticTextMap.profile_sub_heading_interests_en }}{% else %}{{ staticTextMap.profile_sub_heading_interests_fa }}{% endif %}</h4>
+          {% endif %}
+          <div>
+            {% for interest in interests %}
+            <div name="interest_{{ interest.id }}">
+              <img
+                src="{{ interest.imgURL }}"
+                alt="icon"
+                onload="setInterestIconBackground('{{ interest.id }}', '{{ interest.color }}')"
+              />
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; margin-top: -2.7vw">
+          <span class="switch_label">English</span>
+          <label class="switch">
+            <input id="langSwitch" type="checkbox" onclick="switchLang()" {% if lang == 'fa' %}checked{% endif %} />
+            <span class="slider round"></span>
+          </label>
+          <span class="switch_label">Persian</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 {% if lang != 'en' %}style="text-align: right;"{% endif %}>{% if lang == 'en' %}{{ staticTextMap.profile_heading_filters_en }}{% else %}{{ staticTextMap.profile_heading_filters_fa }}{% endif %}</h2>
+  <div class="filters">
+    <div class="checkboxes_container">
+      <div class="checkbox">
+        <input type="checkbox" name="filter" data-filter-id="0" />
+        <h4 for="made_for_you">{% if lang == 'en' %}{{ staticTextMap.profile_filter_options_made_for_you_en }}{% else %}{{ staticTextMap.profile_filter_options_made_for_you_fa }}{% endif %}</h4>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" name="filter" data-filter-id="1" />
+        <h4 for="you_may_also_like">{% if lang == 'en' %}{{ staticTextMap.profile_filter_options_may_also_like_en }}{% else %}{{ staticTextMap.profile_filter_options_may_also_like_fa }}{% endif %}</h4>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" name="filter" data-filter-id="2" />
+        <h4 for="recently_viewed">{% if lang == 'en' %}{{ staticTextMap.profile_filter_options_recent_en }}{% else %}{{ staticTextMap.profile_filter_options_recent_fa }}{% endif %}</h4>
+      </div>
+
+      <div class="checkbox">
+        <input type="checkbox" name="filter" data-filter-id="3" />
+        <h4 for="new">{% if lang == 'en' %}{{ staticTextMap.profile_filter_options_new_en }}{% else %}{{ staticTextMap.profile_filter_options_new_fa }}{% endif %}</h4>
+      </div>
+    </div>
+    <div class="interest_checkboxes_container">
+      {% for categoryID, category in categories.items %}
+      <div class="checkbox">
+        <input
+          type="checkbox"
+          data-category-id="{{ categoryID }}"
+          onclick="onInterestClicked(this)"
+        />
+        <div name="category_{{ categoryID }}">
+          <img
+            src="{{ category.imgURL }}"
+            alt="icon"
+            onload="setCategoryIconBackground('{{ categoryID }}', '{{ category.color }}')"
+          />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+<script src="{% static 'site_admin/js/firebaseInit.js' %}"></script>
+<script>
+  let categories = {{ categories | safe }};
+  let userInterests = {{ interests | safe }};
+  
+
+  function populateInterestsList(){
+    document.querySelector(".interests > div").innerHTML = "";
+    userInterests.forEach(interest => {
+      let newInterest = document.createElement("div");
+      newInterest.setAttribute("name", "interest_" + interest.id);
+      newInterest.innerHTML = "<img src='" + interest.imgURL + "' alt='icon' onload=\"setInterestIconBackground('" + interest.id + "', '" + interest.color + "')\" />";
+      document.querySelector(".interests > div").appendChild(newInterest);
+    });
+
+  }
+
+  function switchLang() {
+    const isChecked = $("#langSwitch").is(':checked');
+    $.ajax({
+      type: "POST",
+      url: "{% url 'profile' %}",
+      data: {
+        type: "langChange",
+        isChecked: isChecked,
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      },
+      success: (response) => {
+        if(response.result == "success") {
+          location.reload();
+        } else {
+          alert("Failed to update language!");
+          $("#langSwitch").prop('checked', !isChecked);
+        }
+
+        $("#overlayLoader").hide();
+      },
+      error: (xhr, errmsg, err) => {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      },
+    });
+  }
+
+  function updateInterests(categoryID, isAdd) {
+    $("#overlayLoader").show();
+
+    data = {
+      type: "interest",
+      categoryID: categoryID,
+      interestOperation: isAdd ? "add" : "remove",
+      csrfmiddlewaretoken: "{{ csrf_token }}",
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "{% url 'profile' %}",
+      data: data,
+      success: (response) => {
+        if(response.result == "failure") {
+          alert("Failed to update filter!");
+          $("[data-category-id='" + categoryID + "']").prop("checked", !isAdd);
+        } else {
+          if(isAdd) {
+            userInterests.push(categories[categoryID]);
+          } else {
+            userInterests = userInterests.filter(interest => {
+              return interest.id != categoryID;
+            });
+          }
+          populateInterestsList();
+        }
+
+        $("#overlayLoader").hide();
+      },
+      error: (xhr, errmsg, err) => {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      },
+    });
+
+  }
+
+  function onInterestClicked(checkbox) {
+    const id = $(checkbox).attr("data-category-id");
+    const isAdd = $(checkbox).prop("checked");
+
+    updateInterests(id, isAdd);
+  }
+
+  $(document).ready(() => {
+    let prevSelectedFilterID = null;
+    let selectedFilterID = {{ filterID | safe }};
+    let categories = {{ categories | safe }};
+    let userInterests = {{ interests | safe }};
+
+    let userDataMap = {};
+
+    $("[data-filter-id='" + selectedFilterID + "']").prop("checked", true);
+
+    userInterests.forEach(interest => {
+      $("[data-category-id='" + interest.id + "']").prop("checked", true);
+    });
+
+    function updateFilter() {
+      $("#overlayLoader").show();
+
+      data = {
+        type: "filter",
+        filterID: selectedFilterID,
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      };
+
+      $.ajax({
+        type: "POST",
+        url: "{% url 'profile' %}",
+        data: data,
+        success: (response) => {
+          if(response.result == "failure") {
+            alert("Failed to update filter!");
+            $("[data-filter-id='" + selectedFilterID + "']").prop("checked", true);
+            selectedFilterID = prevSelectedFilterID;
+            prevSelectedFilterID = null;
+            $("[data-filter-id='" + selectedFilterID + "']").prop("checked", true);
+          }
+
+          $("#overlayLoader").hide();
+        },
+        error: (xhr, errmsg, err) => {
+          console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        },
+      });
+    }
+
+    /*function saveProfile() {
+      $("#overlayLoader").show();
+
+      data = {
+        type: "saveProfile",
+        //name: $("#userName").text(),
+        //email: $("#userEmail").text(),
+        gender: $("#userGender").text().trim(),
+        description: $("#userBio").text().trim(),
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      };
+
+      $.ajax({
+        type: "POST",
+        url: "{% url 'profile' %}",
+        data: data,
+        success: (response) => {
+          if(response.result == "failure") {
+            alert("Failed to update info!");
+            $("#userGender").text(userDataMap.gender == "" ? "N/A" : userDataMap.gender);
+            $("#userBio").text(userDataMap.description == "" ? "N/A" : userDataMap.description);
+          }
+
+          $("#editProfileBtn").text("Edit Information");
+          $("#userGender").attr("contenteditable", false);
+          $("#userBio").attr("contenteditable", false);
+
+          $("#overlayLoader").hide();
+        },
+        error: (xhr, errmsg, err) => {
+          console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+        },
+      });
+    }*/
+
+
+    $("[name='filter']").each((index, element) => {
+      $(element).click(() => {
+        const currCheckboxID = $(element).attr("data-filter-id");
+        if($("[data-filter-id='" + currCheckboxID + "']")[0] != $("[data-filter-id='" + selectedFilterID + "']")[0]) {
+          prevSelectedFilterID = selectedFilterID;
+          selectedFilterID = currCheckboxID;
+          $("[name='filter']").prop("checked", false);
+          $("[data-filter-id='" + selectedFilterID + "']").prop("checked", true);
+
+          updateFilter();
+        } else {
+          $("[data-filter-id='" + selectedFilterID + "']").prop("checked", true);
+        }
+      })
+    });
+
+    let userDetails = {{ userDetails | safe }};
+    const userUid = userDetails.uid;
+    const uploadButtonContainer = $(".upload-file-label");
+    const removePhotoButton = $("#remove_photo");
+    const defaultImage = $(".profile_img > img").data("default-photo");
+
+    console.log("userProfile", userDetails);
+
+    if(userDetails.profilePhoto==""){
+      // uploadButtonContainer.show();
+      // removePhotoButton.hide();
+
+      uploadButtonContainer.removeClass("hide-button");
+      removePhotoButton.addClass("hide-button");
+    }else{
+      // uploadButtonContainer.hide();
+      // removePhotoButton.show();
+
+      uploadButtonContainer.addClass("hide-button");
+      removePhotoButton.removeClass("hide-button");
+    }
+
+    let database = firebase.database();
+    let storageRef = firebase.storage().ref();
+    let userRef = database.ref().child(`users/regularUsers/${userUid}`);
+    let profilePhotoRef = storageRef.child(`content/profile_photos/${userUid}.jpg`);
+
+    function updateProfilePhoto(downloadURL) {
+      userRef.update({"profilePhoto":downloadURL});
+    }
+
+    function removeProfilePhoto() {
+      userRef.update({"profilePhoto":""});
+      profilePhotoRef.delete().then(() => {
+          console.log(`${userUid}.jpg deleted successfully`);
+      }).catch((error) => {
+          console.error(error);
+      });
+    }
+
+    $("#upload_photo").change(function (e) {
+      let fileCount = e.target.files.length;
+      if (fileCount) {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        if (file.size < 600000) {
+          reader.onload = function (e) {
+            let imgLink = e.target.result;
+            $(".profile_img > img").attr('src', imgLink);
+            // uploadButtonContainer.hide();
+            // removePhotoButton.show();
+
+
+            uploadButtonContainer.addClass("hide-button");
+            removePhotoButton.removeClass("hide-button");
+            // console.log(imgLink);
+            // console.log(`Setting image preview ...`);
+
+          };
+          reader.readAsDataURL(file);
+          let uploadTask = profilePhotoRef.put(file);
+          uploadTask.then((snapshot) => {
+            snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                console.log("Download URL", downloadURL);
+                updateProfilePhoto(downloadURL);
+            });
+            
+            console.log('Uploaded a blob or file!');
+          });
+        } else {
+          console.log("File is too big, compress");
+
+        }
+      }
+    });
+
+    removePhotoButton.click((e) => {
+        $(".profile_img > img").attr('src', defaultImage);
+        // removePhotoButton.hide();
+        // uploadButtonContainer.show();
+
+        removePhotoButton.addClass("hide-button");
+        uploadButtonContainer.removeClass("hide-button");
+      
+
+        removeProfilePhoto();
+    });
+
+
+    /*$("#editProfileBtn").click(() => {
+      if($("#editProfileBtn").text().indexOf("Edit") > -1) {
+        $("#editProfileBtn").text("Save Information");
+        //$("#userName").attr("contenteditable", true);
+        //$("#userEmail").attr("contenteditable", true);
+        $("#userGender").attr("contenteditable", true);
+        $("#userBio").attr("contenteditable", true);
+
+        if($("#userGender").text().trim() == "N/A") {
+          $("#userGender").text("");
+        }
+
+        if($("#userBio").text().trim() == "N/A") {
+          $("#userBio").text("");
+        }
+
+        userDataMap["gender"] = $("#userGender").text().trim();
+        userDataMap["description"] = $("#userBio").text().trim();
+      } else {
+        saveProfile();
+      }
+    });*/
+  });
+</script>
+
+{% endblock %}

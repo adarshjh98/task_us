@@ -1,0 +1,15 @@
+**/*.pyc
+*.aab
+*.apk
+build/
+**/.idea/
+**/__pycache__/
+**/media/**
+db.sqlite3
+.DS_Store
+.gradle
+.classpath
+.project
+.settings
+**/node_modules/
+**/lib/

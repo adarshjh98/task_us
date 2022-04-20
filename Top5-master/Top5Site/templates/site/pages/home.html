@@ -1,0 +1,708 @@
+{% extends 'site/base.html' %} {% load static %} {% block content %}
+
+<title>Home</title>
+
+<style>
+  .home_page_container {
+    height: calc(100% - 70px);
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+</style>
+
+<div class="home_page_container">
+  <div class="home_page">
+    <div class="hero">
+      <div class="hero_bg">
+        <div class="hero_bg_overlay"></div>
+        <a href="{% static 'site/img/hero_bg.png' %}" class="progressive replace">
+          <img src="{% static 'site/img/hero_bg_min.png' %}" class="preview" alt="image" />
+        </a>
+      </div>
+      <div class="hero_content">
+        <div class="hero_center">
+          <div>
+            <h1>IRAN TOP5</h1>
+            <h3>{% if lang == 'en' %}{{ staticTextMap.your_fav_recom_site_en }}{% else %}{{ staticTextMap.your_fav_recom_site_fa }}{% endif %}</h3>
+            <div class="hero_search">
+              <input id="searchInput" type="text" placeholder="{% if lang == 'en' %}{{ staticTextMap.search_stuff_you_like_en }}{% else %}{{ staticTextMap.search_stuff_you_like_fa }}{% endif %}" />
+              <div id="searchBtn" style="user-select: none; cursor: pointer;}">
+                <img src="{% static 'site/img/search_icon_gray.png' %}" />
+                <p>{% if lang == 'en' %}{{ staticTextMap.search_en }}{% else %}{{ staticTextMap.search_fa }}{% endif %}</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+        <div class="hero_footer">
+          <div>
+            {% if categories|length > 0 %}
+              <h3>{% if lang == 'en' %}{{ staticTextMap.we_have_content_for_the_following_en }}{% else %}{{ staticTextMap.we_have_content_for_the_following_fa }}{% endif %}</h3>
+              <div class="hero_categories">
+                {% for categoryID, category in categories.items %}
+                  <span onclick='window.location.href="{% url 'categories' %}"'>
+                    <div><img loading='lazy' src="{{ category.imgURL }}" /></div>
+                  </span>
+                {% endfor %}
+              </div>          
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% comment %} <div
+      class="search_field"
+      style="
+        width: 25.6vw;
+        height: 2.73vw;
+        align-self: {% if lang == 'en' %}flex-end{% else %}flex-start{% endif %};
+        margin: 0 6.3vw;
+        transform: scale({% if lang == 'en' %}1{% else %}-1{% endif %});
+      "
+    >
+      <img src="{% static 'site/img/search_icon_gray.png' %}" alt="search" />
+      <input
+        id="searchInp"
+        type="text"
+        style="
+          transform: inherit;
+          direction: {% if lang == 'en' %}ltr{% else %}rtl{% endif %};
+          "
+        placeholder="{% if lang == 'en' %}{{ staticTextMap.search_placeholder_en }}{% else %}{{ staticTextMap.search_placeholder_fa }}{% endif %}"
+      />
+    </div> {% endcomment %}
+
+    <div class="ad">AD BANNER</div>
+
+    {% comment %} <div class="image_banner">
+      <div>
+        <div style="padding: 0 10px;">
+          <div>
+            <h1>The <span style="font-weight: bold;">good</span> stuff</h1>
+          </div>
+          <div>
+            <h1>for you</h1>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div> {% endcomment %}
+
+    {% comment %} Carousel Start {% endcomment %}
+
+    <!-- Slideshow container -->
+    {% if recentPosts|length > 0 %}
+      <div id="carousel">
+        <div class="slideshow-container">
+          {% for post in recentPosts %}
+          <div
+            class="mySlides"
+            onclick="onCarouselSlideClicked(this, '{{ post.id }}')"
+          >
+            {% if post.link != "" %}
+            <a href="{{ post.link }}" class="progressive replace">
+              <img src="{% if 'minLink' in post %}{{ post.minLink }}{% else %}{{ post.link }}{% endif %}" class="preview" alt="image" style="width: 100%" />
+            </a>
+            {% endif %}
+            <div>
+              <div class="text">{{ post.name }}</div>
+            </div>
+          </div>
+          {% endfor %}        
+        </div>
+        <br />
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="prevSlide()">&#10094;</a>
+        <a class="next" onclick="nextSlide()">&#10095;</a>
+
+        <div id="indicators" style="text-align: center">
+          {% for post in recentPosts %}
+            <span class="indicator" onclick="currentSlide({{ forloop.counter }})"></span>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% comment %} Carousel End {% endcomment %}
+
+    <div id="posts"></div>
+    <p id="noPosts" style="text-align: center; display: none">
+      {% if lang == 'en' %}{{ staticTextMap.no_posts_available_en }}{% else %}{{
+      staticTextMap.no_posts_available_fa }}{% endif %}
+    </p>
+
+    <div id="loader">
+      <div class="lds-default">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div>
+        {% if lang == 'en' %}{{ staticTextMap.loading_en }}{% else %}{{ staticTextMap.loading_fa }}{% endif %}
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="control_buttons">
+        <div id="viewPrevBtn" class="view_more_btn">
+          <button>
+            {% if lang == 'en' %}{{ staticTextMap.view_prev_en }}{% else %}{{ staticTextMap.view_prev_fa }}{% endif %}
+          </button>
+        </div>
+        <div id="viewMoreBtn" class="view_more_btn">
+          <button>
+            {% if lang == 'en' %}{{ staticTextMap.view_more_en }}{% else %}{{ staticTextMap.view_more_fa }}{% endif %}
+          </button>
+        </div>
+      </div>
+      <p id="page">
+        {% if lang == 'en' %}{{ staticTextMap.page_en }}{% else %}{{ staticTextMap.page_fa }}{% endif %} <span id="pageNum">1</span>
+      </p>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8BET22Z9HF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8BET22Z9HF');
+</script>
+
+<script>
+  const posts = document.getElementById("posts");
+  const lang = "{{ lang }}";
+
+  let allLoadedPosts = [];
+  let pageNumber = {{ pageNumber }};
+
+  {% comment %} $(".hero_search").click(() => {
+    window.location.href = "{% url 'browse' %}";
+  }); {% endcomment %}
+
+  $("#searchBtn").click(() => {
+    if($("#searchInput").val().length > 0) {
+      window.location.href = "{% url 'browse' 123456 %}".replace(/123456/, $("#searchInput").val());
+    } else {
+      window.location.href = "{% url 'browse' %}";
+    }
+  });
+
+  let slideIndex = 1;
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showNext() {
+    showSlides((slideIndex += 1));
+  }
+
+  function showSlides(n) {
+    let slides = document.getElementsByClassName("mySlides");
+    let indicators = document.getElementsByClassName("indicator");
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+
+    $(".slideshow-container").css(
+      "left",
+      "calc(-87.4vw * " + (slideIndex - 1) + ")"
+    );
+
+    for (let i = 0; i < indicators.length; i++) {
+      indicators[i].className = indicators[i].className.replace(" active", "");
+    }
+
+    indicators[slideIndex - 1].className += " active";
+  }
+
+  function onCarouselSlideClicked(e, urlParam){
+    window.location.href = "{% url 'post' 123456 %}".replace(/123456/, encodeURI(urlParam));
+  }
+
+  if({{ recentPostsCount | safe }} > 0) {    
+    showSlides(slideIndex);
+    let carouselTimer = setInterval(() => plusSlides(1), 5000);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides((slideIndex += n));
+    }
+
+    function nextSlide(){
+      clearInterval(carouselTimer);
+      plusSlides(1);
+      carouselTimer = setInterval(() => plusSlides(1), 5000);
+    }
+
+    function prevSlide(){
+      clearInterval(carouselTimer);
+      plusSlides(-1);
+      carouselTimer = setInterval(() => plusSlides(1), 5000);
+    }
+  }
+
+
+  function loadPosts() {
+    $("#viewMoreBtn").hide();
+    $("#posts").hide();
+    $("#page").hide();
+    $("#loader").show();
+
+    data = {
+      type: "load",
+      csrfmiddlewaretoken: "{{ csrf_token }}",
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "{% url 'home' %}",
+      data: data,
+      success: (response) => {
+        if(response.result == "success") {
+          if (response.posts.length > 0) {
+            if (response.posts.length < 10) {
+              $("#viewMoreBtn").hide();
+            } else {
+              $("#viewMoreBtn").show();
+              $("#posts").html("");
+            }
+
+            $("#posts").show();
+
+            $("#page").show();
+            $("#pageNum").html(pageNumber + 1);
+
+            if (pageNumber > 0) {
+              $("#viewPrevBtn").css("display", "flex");
+            } else {
+              $("#viewPrevBtn").hide();
+            }
+
+            allLoadedPosts = [];
+            response.posts.forEach((post) => {
+              allLoadedPosts.push(post);
+              createPostElement(post);
+            });
+          } else {
+            $("#viewMoreBtn").hide();
+
+            if (pageNumber == 0 && allLoadedPosts.length == 0) {
+              $("#noPosts").show();
+            } else {
+              $("#posts").show();
+              $("#page").show();
+            }
+          }
+          $("#loader").hide();
+        } else {
+          if('invalid' in response) {
+            window.location.href = "{% url 'invalid' %}";
+          }
+        }
+      },
+      error: (xhr, errmsg, err) => {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      },
+    });
+  }
+
+  function likePost(postID, isLike) {
+    $.ajax({
+      type: "POST",
+      url: "{% url 'home' %}",
+      data: {
+        type: "like",
+        postID: postID,
+        isLike: isLike,
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      },
+      success: (response) => {
+        if (response.result == "success") {
+          $(
+            "[name='like_" +
+              postID +
+              "'] > span:first-child, #selectedPostActionAndComments [name='like_" +
+              postID +
+              "'] > span:first-child"
+          )
+            .toggleClass("far")
+            .toggleClass("fas");
+          $(
+            "[name='like_" +
+              postID +
+              "'] > span:first-child, #selectedPostActionAndComments [name='like_" +
+              postID +
+              "'] > span:first-child"
+          ).css("color", isLike ? "#D7443E" : "black");
+          $(
+            "[name='like_" +
+              postID +
+              "'] > span:last-child, #selectedPostActionAndComments [name='like_" +
+              postID +
+              "'] > span:last-child"
+          ).html(response.likes + " like" + (response.likes != 1 ? "s" : ""));
+        }
+      },
+      error: (xhr, errmsg, err) => {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      },
+    });
+  }
+
+  /*function addNewComment(postID, commentID, message) {
+    let comment = document.createElement("div");
+    comment.classList.add("comment");
+    comment.setAttribute("id", commentID);
+    comment.setAttribute("data-post-id", postID);
+    comment.setAttribute("style", "transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});");
+      comment.innerHTML =
+        "<img src=\"{% static 'site/img/user_avatar.png' %}\" alt='user' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' /><div class='comment_content'><span style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>You</span><span style='grid-column: 2/4; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>" +
+        message +
+        "</span><span class='comment_action' style='cursor: unset; pointer-events: none; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>24h</span>" + ("{{ isLoggedIn }}" == "True" ? "<span class='comment_action' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>Reply</span><span class='comment_action' style='color:#ff5656; margin-left:10px; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' onclick='onDeleteComment(this)'>Delete</span>" : "") + "</div>";
+
+    document.getElementById("comments_" + postID).appendChild(comment);
+  }
+
+  function commentOnPost(postID, comment) {
+    $.ajax({
+      type: "POST",
+      url: "{% url 'home' %}",
+      data: {
+        type: "comment",
+        postID: postID,
+        comment: comment,
+        timestamp: new Date().getTime(),
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      },
+      success: (response) => {
+        if (response.result == "success") {
+          addNewComment(postID, response.commentID, comment);
+          $(
+            "#comments_count_" +
+              postID +
+              " > span:last-child"
+          ).html(
+            response.comments +
+              " comment" +
+              (response.comments != 1 ? "s" : "") +
+              "</span>"
+          );
+          $("#comment_inp_" + postID).val("");
+        }
+      },
+      error: (xhr, errmsg, err) => {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      },
+    });
+  }
+
+  function deleteComment(postID, commentID) {
+    $.ajax({
+      type: "POST",
+      url: "{% url 'home' %}",
+      data: {
+        type: "delete_comment",
+        postID: postID,
+        commentID: commentID,
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      },
+      success: (response) => {
+        if (response.result == "success") {
+          $("#" + commentID).remove()
+          $(
+            "#comments_count_" +
+              postID +
+              " > span:last-child"
+          ).html(
+            response.comments +
+              " comment" +
+              (response.comments != 1 ? "s" : "") +
+              "</span>"
+          );
+        } else {
+          alert("Failed to delete comment!");
+        }
+
+        $("#postCommentDeletionConfirmationModal").hide();
+      },
+      error: (xhr, errmsg, err) => {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      },
+    });
+  }*/
+
+  function savePost(postID, categoryID, isSave) {
+    $.ajax({
+      type: "POST",
+      url: "{% url 'home' %}",
+      data: {
+        type: "save",
+        isSave: isSave,
+        postID: postID,
+        categoryID: categoryID,
+        csrfmiddlewaretoken: "{{ csrf_token }}",
+      },
+      success: (response) => {
+        if (response.result == "success") {
+          $(
+            "[name='save_" +
+              postID +
+              "'] > span"
+          )
+            .toggleClass("far")
+            .toggleClass("fas");
+        }
+      },
+      error: (xhr, errmsg, err) => {
+        console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+      },
+    });
+  }
+
+  function createPostElement(postMap) {
+    let post = document.createElement("div");
+    post.setAttribute("id", "post_" + postMap["id"]);
+    post.classList.add("post");
+
+    let postContainer = document.createElement("div");
+    postContainer.classList.add("post_container");
+
+    let postHeader = document.createElement("div");
+    postHeader.classList.add("post_header");
+    postHeader.setAttribute("style", "transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %}");
+    postHeader.innerHTML =
+      "<div name='category_" +
+      postMap["category"]["id"] +
+      "' style='transform: inherit;'><img src='" +
+      postMap["category"]["imgURL"] +
+      "' alt='icon' onload=\"setCategoryIconBackground('" +
+      postMap["category"]["id"] +
+      "','" +
+      postMap["category"]["color"] +
+      "')\" /></div><span style='transform: inherit;'>" +
+      postMap["name"] +
+      "</span>";
+    postContainer.appendChild(postHeader);
+
+    let postContent = document.createElement("div");
+    postContent.setAttribute("id", "postContent_" + postMap["id"]);
+    postContent.classList.add("post_content");
+    if (postMap["type"].indexOf("img") >= 0 || (postMap["type"] == "article" && postMap["link"] != "")) {      
+      postContent.innerHTML =
+        "<a href='" + postMap["link"] + "' class='progressive replace' style='cursor: inherit;width: inherit;height: inherit;position: unset;''><img src='" +
+        ("minLink" in postMap && postMap['minLink'] != "" ? postMap["minLink"] : postMap["link"]) +
+        "' class='post_content_image preview' loading='lazy' alt='post_img' style='cursor: inherit;' onerror='$(this).hide()' /></a>";
+    } else if (postMap["type"].indexOf("vid") >= 0) {
+      postContent.innerHTML =
+        "<video src='" +
+        postMap["link"] +
+        "#t=0.5' class='post_content_video' preload='metadata' />";
+    } else if (postMap["type"] == "article") {
+      postContent.innerHTML =
+        "<img src='{% static 'site/img/article.png' %}' class='post_article_placeholder_image' loading='lazy' alt='post_img' onerror='$(this).hide()' />";
+    }
+
+    if (postMap["type"].toLowerCase().indexOf("txt") >= 0) {
+      let text = postMap["text"];
+
+      postContent.innerHTML +=
+        "<span style='color: " +
+        (postMap["link"] == "" ? "black" : "transparent") +
+        "'>" +
+        text +
+        "</span>";
+    }
+    postContainer.appendChild(postContent);
+
+    let postAction = document.createElement("div");
+    postAction.classList.add("post_action");
+    let likeBtn = document.createElement("div");
+    likeBtn.classList.add("post_action_item");
+    likeBtn.setAttribute("name", "like_" + postMap["id"]);
+    likeBtn.innerHTML =
+      "<span class='" +
+      (postMap["isLiked"] ? "fas" : "far") +
+      " fa-heart' style='" +
+      (postMap["isLiked"] ? "color: #D7443E" : "") +
+      "'></span><span {% if lang != 'en' %}style='direction: rtl;'{% endif %}>" +
+      postMap["likes"] +
+      " " +
+      (postMap["likes"] != 1 ? "{% if lang == 'en' %}{{ staticTextMap.likes_en }}{% else %}{{ staticTextMap.likes_fa }}{% endif %}" : "{% if lang == 'en' %}{{ staticTextMap.like_en }}{% else %}{{ staticTextMap.like_fa }}{% endif %}") +
+      "</span>";
+
+    postAction.appendChild(likeBtn);
+
+    postAction.innerHTML +=
+      "<div id='comments_count_" +
+      postMap["id"] +
+      "' class='post_action_item'><span class='far fa-comment'></span><span {% if lang != 'en' %}style='direction: rtl;'{% endif %}>" +
+      postMap["comments"] +
+      " " +
+      (postMap["comments"] != 1 ? "{% if lang == 'en' %}{{ staticTextMap.comments_en }}{% else %}{{ staticTextMap.comments_fa }}{% endif %}" : "{% if lang == 'en' %}{{ staticTextMap.comment_en }}{% else %}{{ staticTextMap.comment_fa }}{% endif %}") +      
+      "</span></div>";
+
+    let saveBtn = document.createElement("div");
+    saveBtn.classList.add("post_action_item");
+    saveBtn.setAttribute("name", "save_" + postMap["id"]);
+    saveBtn.setAttribute("data-category-id", postMap["category"]["id"]);
+    saveBtn.innerHTML =
+      "<span class='" +
+      (postMap["isSaved"] ? "fas" : "far") +
+      " fa-bookmark'></span>";
+    postAction.appendChild(saveBtn);
+
+    postContainer.appendChild(postAction);
+
+    let commentSection = document.createElement("div");
+    commentSection.classList.add("comment_sec");
+
+    let likes = document.createElement("div");
+    likes.classList.add("likes");
+    likes.setAttribute("style", "transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %}");
+    likes.innerHTML =
+      "<div class='user_pic'><img src=\"{% static 'site/img/user_avatar.png' %}\" alt='user' /><img src=\"{% static 'site/img/user_avatar.png' %}\" alt='user' /><img src=\"{% static 'site/img/user_avatar.png' %}\" alt='user' /></div><span style='transform: inherit;'>" +
+      postMap["likeStr"] +
+      "</span>";
+    commentSection.appendChild(likes);
+
+    /*let comments = document.createElement("div");
+    comments.setAttribute("id", "comments_" + postMap["id"]);
+    comments.classList.add("comments");
+    postMap["allComments"].forEach((commentMap) => {
+      let comment = document.createElement("div");
+      comment.classList.add("comment");
+      comment.setAttribute("id", commentMap["id"]);
+      comment.setAttribute("data-post-id", postMap["id"]);
+      comment.setAttribute("style", "transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});");
+      comment.innerHTML =
+        "<img src=\"{% static 'site/img/user_avatar.png' %}\" alt='user' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' /><div class='comment_content'><span style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>" +
+        commentMap["username"] +
+        "</span><span style='grid-column: 2/4; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>" +
+        commentMap["comment"] +
+        "</span><span class='comment_action' style='cursor: unset; pointer-events: none; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>24h</span>" + ("{{ isLoggedIn }}" == "True" ? "<span class='comment_action' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});'>Reply</span>" + ("{{ userID }}" == commentMap["userID"] ? "<span class='comment_action' style='color:#ff5656; margin-left:10px; transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' onclick='onDeleteComment(this)'>Delete</span>" : "") : "") + "</div>";
+      comments.appendChild(comment);
+    });
+    commentSection.appendChild(comments);
+    postContainer.appendChild(commentSection);
+
+    let commentInput = document.createElement("div");
+    commentInput.classList.add("comment_input");
+    commentInput.setAttribute("style", "transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});");
+    commentInput.innerHTML =
+      "<img src=\"{% static 'site/img/user_avatar.png' %}\" alt='user' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' /><input id='comment_inp_" +
+      postMap["id"] +
+      "' type='text' style='transform: inherit; direction:{% if lang == 'en' %}ltr{% else %}rtl{% endif %}' " +
+      ("{{ isLoggedIn }}" != "True" ? "disabled" : "") +
+      " placeholder='" +
+      ("{{ isLoggedIn }}" == "True"
+        ? "{% if lang == 'en '%}{{ staticTextMap.comment_input_placeholder_en }}{% else %}{{ staticTextMap.comment_input_placeholder_fa }}{% endif %}"
+        : "{% if lang == 'en '%}{{ staticTextMap.comment_input_anon_placeholder_en }}{% else %}{{ staticTextMap.comment_input_anon_placeholder_fa }}{% endif %}") +
+      "' />" +
+      ("{{ isLoggedIn }}" == "True"
+        ? "<button class='postBtn_" + postMap["id"] + "' style='transform: scaleX({% if lang == 'en' %}1{% else %}-1{% endif %});' >{% if lang == 'en '%}{{ staticTextMap.comment_post_en }}{% else %}{{ staticTextMap.comment_post_fa }}{% endif %}</button>"
+        : "");
+    postContainer.appendChild(commentInput);*/
+
+    post.appendChild(postContainer);
+
+    posts.appendChild(post);
+
+    $("#comments_count_" + postMap["id"]).click((e) => {
+      let param = encodeURI(postMap["id"]);
+      window.location.href = "{% url 'post' 123456 %}".replace(/123456/, param);
+    });
+1
+    $("#postContent_" + postMap["id"]).click((e) => {
+      let param = encodeURI(postMap["id"]);
+      window.location.href = "{% url 'post' 123456 %}".replace(/123456/, param);
+    });
+
+    if ("{{ isLoggedIn }}" == "True") {
+      $("[name='like_" + postMap["id"] + "']").click((e) => {
+        postID = $(e.target)
+          .closest(".post_action_item")
+          .attr("name")
+          .replace("like_", "");
+
+        likePost(
+          postID,
+          $("[name='like_" + postID + "'] > span:first-child").hasClass("far")
+        );
+      });
+
+      /*$(".postBtn_" + postMap["id"]).click((e) => {
+        postID = $(e.target).attr("class").replace("postBtn_", "");
+        commentInp = $("#comment_inp_" + postID).val();
+        commentOnPost(postID, commentInp);
+      });*/
+
+      $("[name='save_" + postMap["id"] + "']").click((e) => {
+        postID = $(e.target)
+          .closest(".post_action_item")
+          .attr("name")
+          .replace("save_", "");
+        categoryID = $(e.target)
+          .closest(".post_action_item")
+          .attr("data-category-id");
+        savePost(
+          postID,
+          categoryID,
+          $("[name='save_" + postID + "'] > span").hasClass("far")
+        );
+      });
+    }
+
+    return post;
+  }
+
+  let selectedCommentForDeletion = {};
+
+  function onDeleteComment(e) {
+    selectedCommentForDeletion = {
+      postID: $(e).closest(".comment").attr("data-post-id"),
+      commentID: $(e).closest(".comment").attr("id")
+    }
+
+    $("#postCommentDeletionConfirmationModal").show();
+  }
+
+  $("#confirmCommentDeletionBtn").click(() => {
+    deleteComment(selectedCommentForDeletion.postID, selectedCommentForDeletion.commentID);
+  });
+
+  loadPosts();
+
+  $("#viewPrevBtn").click(() => {
+    if ($("#loader").css("display") == "none") {
+      window.location.href = "{% url 'home' %}";
+    }
+  });
+
+  $("#viewMoreBtn").click(() => {
+    if ($("#loader").css("display") == "none") {
+      window.location.href = "{% url 'home' %}";
+    }
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+        -->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.credentials.SignupFragment">
+
+            <View
+                android:id="@+id/logo_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.197:1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/logo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H, 1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logo_top_space"
+                app:layout_constraintWidth_percent="0.228">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/logo" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/username_bar_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.197:1"
+                app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/username_input_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/input_field_bg"
+                app:layout_constraintDimensionRatio="W, 0.153:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/username_bar_top_space"
+                app:layout_constraintWidth_percent="0.853">
+
+                <View
+                    android:id="@+id/ic_username_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.042" />
+
+                <ImageView
+                    android:id="@+id/ic_username"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/username"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintHeight_percent="0.181"
+                    app:layout_constraintStart_toEndOf="@+id/ic_username_start_gap"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/username_input_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toEndOf="@+id/ic_username"
+                    app:layout_constraintWidth_percent="0.034" />
+
+                <EditText
+                    android:id="@+id/usernameInp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:fontFamily="@font/titillium_regular"
+                    android:hint="@string/hint_username"
+                    android:includeFontPadding="false"
+                    android:inputType="text|textNoSuggestions"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="12sp"
+                    app:autoSizeMaxTextSize="12sp"
+                    app:autoSizeMinTextSize="10sp"
+                    app:autoSizeStepGranularity="0.8sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toStartOf="@+id/username_input_end_gap"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/username_input_start_gap"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/usernameInpWarning"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_warning"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/username_input_end_gap"
+                    app:layout_constraintHeight_percent="0.25"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/username_input_end_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.034" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/email_bar_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.044:1"
+                app:layout_constraintTop_toBottomOf="@+id/username_input_container" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/email_input_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/input_field_bg"
+                app:layout_constraintDimensionRatio="W, 0.153:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_bar_top_space"
+                app:layout_constraintWidth_percent="0.853">
+
+                <View
+                    android:id="@+id/ic_email_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.042" />
+
+                <ImageView
+                    android:id="@+id/ic_email"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/email"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintHeight_percent="0.181"
+                    app:layout_constraintStart_toEndOf="@+id/ic_email_start_gap"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/email_input_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toEndOf="@+id/ic_email"
+                    app:layout_constraintWidth_percent="0.034" />
+
+                <EditText
+                    android:id="@+id/emailInp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:fontFamily="@font/titillium_regular"
+                    android:hint="@string/hint_email"
+                    android:includeFontPadding="false"
+                    android:inputType="textEmailAddress|textNoSuggestions"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="12sp"
+                    app:autoSizeMaxTextSize="12sp"
+                    app:autoSizeMinTextSize="10sp"
+                    app:autoSizeStepGranularity="0.8sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toStartOf="@+id/email_input_end_gap"
+                    app:layout_constraintStart_toEndOf="@+id/email_input_start_gap" />
+
+                <ImageView
+                    android:id="@+id/emailInpWarning"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_warning"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/email_input_end_gap"
+                    app:layout_constraintHeight_percent="0.25"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/email_input_end_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.034" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/password_bar_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.044:1"
+                app:layout_constraintTop_toBottomOf="@+id/email_input_container" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/password_input_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/input_field_bg"
+                app:layout_constraintDimensionRatio="W, 0.153:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password_bar_top_space"
+                app:layout_constraintWidth_percent="0.853">
+
+                <View
+                    android:id="@+id/ic_password_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.042" />
+
+                <ImageView
+                    android:id="@+id/ic_password"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/password"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintHeight_percent="0.181"
+                    app:layout_constraintStart_toEndOf="@+id/ic_password_start_gap"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/password_input_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toEndOf="@+id/ic_password"
+                    app:layout_constraintWidth_percent="0.034" />
+
+                <EditText
+                    android:id="@+id/passwordInp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:fontFamily="@font/titillium_regular"
+                    android:hint="@string/hint_password"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword|textNoSuggestions"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="12sp"
+                    app:autoSizeMaxTextSize="12sp"
+                    app:autoSizeMinTextSize="10sp"
+                    app:autoSizeStepGranularity="0.8sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toStartOf="@+id/password_input_end_gap"
+                    app:layout_constraintStart_toEndOf="@+id/password_input_start_gap" />
+
+                <ImageView
+                    android:id="@+id/passwordInpWarning"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_warning"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/password_input_end_gap"
+                    app:layout_constraintHeight_percent="0.25"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/password_input_end_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.034" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/confirm_password_bar_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.044:1"
+                app:layout_constraintTop_toBottomOf="@+id/password_input_container" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/confirm_password_input_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/input_field_bg"
+                app:layout_constraintDimensionRatio="W, 0.153:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/confirm_password_bar_top_space"
+                app:layout_constraintWidth_percent="0.853">
+
+                <View
+                    android:id="@+id/ic_confirm_password_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.042" />
+
+                <ImageView
+                    android:id="@+id/ic_confirm_password"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/password"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintHeight_percent="0.181"
+                    app:layout_constraintStart_toEndOf="@+id/ic_confirm_password_start_gap"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/confirm_password_input_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintStart_toEndOf="@+id/ic_confirm_password"
+                    app:layout_constraintWidth_percent="0.034" />
+
+                <EditText
+                    android:id="@+id/confirmPasswordInp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:fontFamily="@font/titillium_regular"
+                    android:hint="@string/hint_confirm_password"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword|textNoSuggestions"
+                    android:textColorHint="@color/colorHint"
+                    android:textSize="12sp"
+                    app:autoSizeMaxTextSize="12sp"
+                    app:autoSizeMinTextSize="10sp"
+                    app:autoSizeStepGranularity="0.8sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintEnd_toStartOf="@+id/confirm_password_input_end_gap"
+                    app:layout_constraintStart_toEndOf="@+id/confirm_password_input_start_gap" />
+
+                <ImageView
+                    android:id="@+id/confirmPasswordInpWarning"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_warning"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="W, 1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/confirm_password_input_end_gap"
+                    app:layout_constraintHeight_percent="0.25"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/confirm_password_input_end_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.034" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--            <View-->
+            <!--                android:id="@+id/gender_bar_top_space"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="0dp"-->
+            <!--                app:layout_constraintDimensionRatio="W, 0.044:1"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/confirm_password_input_container" />-->
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:id="@+id/gender_input_container"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="0dp"-->
+            <!--                android:background="@drawable/input_field_bg"-->
+            <!--                app:layout_constraintDimensionRatio="W, 0.153:1"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/gender_bar_top_space"-->
+            <!--                app:layout_constraintWidth_percent="0.853">-->
+
+            <!--                <View-->
+            <!--                    android:id="@+id/ic_gender_start_gap"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@null"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintWidth_percent="0.042" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/ic_gender"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="0dp"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:src="@drawable/ic_gender"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintDimensionRatio="W, 1:1"-->
+            <!--                    app:layout_constraintHeight_percent="0.181"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/ic_gender_start_gap"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <View-->
+            <!--                    android:id="@+id/gender_input_start_gap"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@null"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/ic_gender"-->
+            <!--                    app:layout_constraintWidth_percent="0.034" />-->
+
+            <!--                &lt;!&ndash;                <EditText&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:id="@+id/genderInp"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:layout_width="0dp"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:background="@null"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:fontFamily="@font/titillium_regular"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:hint="@string/hint_gender"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:includeFontPadding="false"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:inputType="textPassword|textNoSuggestions"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:textColorHint="@color/colorHint"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    android:textSize="12sp"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    app:autoSizeMaxTextSize="12sp"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    app:autoSizeMinTextSize="10sp"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    app:autoSizeStepGranularity="0.8sp"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    app:autoSizeTextType="uniform"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    app:layout_constraintEnd_toStartOf="@+id/gender_input_end_gap"&ndash;&gt;-->
+            <!--                &lt;!&ndash;                    app:layout_constraintStart_toEndOf="@+id/gender_input_start_gap" />&ndash;&gt;-->
+
+            <!--                <Spinner-->
+            <!--                    android:id="@+id/genderInp"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/gender_input_end_gap"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/gender_input_start_gap"-->
+            <!--                    android:spinnerMode="dialog" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/genderInpWarning"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="0dp"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:src="@drawable/ic_warning"-->
+            <!--                    android:visibility="gone"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintDimensionRatio="W, 1:1"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/gender_input_end_gap"-->
+            <!--                    app:layout_constraintHeight_percent="0.25"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <View-->
+            <!--                    android:id="@+id/gender_input_end_gap"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@null"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintWidth_percent="0.034" />-->
+
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <!--            <View-->
+            <!--                android:id="@+id/bio_bar_top_space"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="0dp"-->
+            <!--                app:layout_constraintDimensionRatio="W, 0.044:1"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/gender_input_container" />-->
+
+            <!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+            <!--                android:id="@+id/bio_input_container"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="0dp"-->
+            <!--                android:background="@drawable/input_field_bg"-->
+            <!--                app:layout_constraintDimensionRatio="W, 0.153:1"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/bio_bar_top_space"-->
+            <!--                app:layout_constraintWidth_percent="0.853">-->
+
+            <!--                <View-->
+            <!--                    android:id="@+id/ic_bio_start_gap"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@null"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintWidth_percent="0.042" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/ic_bio"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="0dp"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:src="@drawable/username"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintDimensionRatio="W, 1:1"-->
+            <!--                    app:layout_constraintHeight_percent="0.181"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/ic_bio_start_gap"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <View-->
+            <!--                    android:id="@+id/bio_input_start_gap"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@null"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/ic_bio"-->
+            <!--                    app:layout_constraintWidth_percent="0.034" />-->
+
+            <!--                <EditText-->
+            <!--                    android:id="@+id/bioInp"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:fontFamily="@font/titillium_regular"-->
+            <!--                    android:hint="@string/hint_bio"-->
+            <!--                    android:includeFontPadding="false"-->
+            <!--                    android:inputType="text|textNoSuggestions"-->
+            <!--                    android:textColorHint="@color/colorHint"-->
+            <!--                    android:textSize="12sp"-->
+            <!--                    app:autoSizeMaxTextSize="12sp"-->
+            <!--                    app:autoSizeMinTextSize="10sp"-->
+            <!--                    app:autoSizeStepGranularity="0.8sp"-->
+            <!--                    app:autoSizeTextType="uniform"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/bio_input_end_gap"-->
+            <!--                    app:layout_constraintStart_toEndOf="@+id/bio_input_start_gap" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:id="@+id/bioInpWarning"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="0dp"-->
+            <!--                    android:background="@null"-->
+            <!--                    android:src="@drawable/ic_warning"-->
+            <!--                    android:visibility="gone"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintDimensionRatio="W, 1:1"-->
+            <!--                    app:layout_constraintEnd_toStartOf="@+id/bio_input_end_gap"-->
+            <!--                    app:layout_constraintHeight_percent="0.25"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+            <!--                <View-->
+            <!--                    android:id="@+id/bio_input_end_gap"-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="match_parent"-->
+            <!--                    android:background="@null"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintWidth_percent="0.034" />-->
+
+            <!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <View
+                android:id="@+id/signup_bar_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.083:1"
+                app:layout_constraintTop_toBottomOf="@+id/confirm_password_input_container" />
+
+            <Button
+                android:id="@+id/signUpBtn"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/round_rect_with_ripple"
+                android:fontFamily="@font/titillium_medium"
+                android:text="@string/sign_up"
+                android:textColor="@color/colorAccent"
+                app:autoSizeMaxTextSize="18sp"
+                app:autoSizeMinTextSize="15sp"
+                app:autoSizeStepGranularity="0.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintDimensionRatio="H, 1:0.18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/signup_bar_top_space"
+                app:layout_constraintWidth_percent="0.542" />
+
+            <!--            <View-->
+            <!--                android:id="@+id/sign_up_using_options_top_space"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="0dp"-->
+            <!--                app:layout_constraintDimensionRatio="W, 0.077:1"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/sign_up_using_options_container"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:gravity="center"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/sign_up_using_options_top_space">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginEnd="32dp"-->
+            <!--                    android:fontFamily="@font/titillium_regular"-->
+            <!--                    android:includeFontPadding="false"-->
+            <!--                    android:text="@string/sign_up_using"-->
+            <!--                    android:textColor="#C6C3BD"-->
+            <!--                    app:autoSizeMaxTextSize="12sp"-->
+            <!--                    app:autoSizeMinTextSize="10sp"-->
+            <!--                    app:autoSizeStepGranularity="0.8sp"-->
+            <!--                    app:autoSizeTextType="uniform"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginEnd="20dp"-->
+            <!--                    android:src="@drawable/gp" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginEnd="20dp"-->
+            <!--                    android:src="@drawable/fb" />-->
+
+            <!--                <ImageView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_marginEnd="20dp"-->
+            <!--                    android:src="@drawable/twitter" />-->
+
+            <!--            </LinearLayout>-->
+
+            <View
+                android:id="@+id/existing_acc_top_space"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.17:1"
+                app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />
+
+            <TextView
+                android:id="@+id/existingAccBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/titillium_regular"
+                android:includeFontPadding="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="15dp"
+                android:text="@string/existing_acc"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                app:autoSizeMaxTextSize="12sp"
+                app:autoSizeMinTextSize="10sp"
+                app:autoSizeStepGranularity="0.8sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toTopOf="@+id/footerLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+
+
+
+
+            <!--
+            <View
+                android:id="@+id/bottom_gap"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+                -->
+
+            <FrameLayout
+                android:id="@+id/progressBarHolder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.4"
+                android:animateLayoutChanges="true"
+                android:background="#000000"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:indeterminate="true" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/footerLayout"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintWidth_percent="0.853"
+                app:layout_constraintDimensionRatio="W, 0.153:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+                <TextView
+                    android:id="@+id/privacyPolicyTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/privacy_policy"
+                    android:textColor="@color/url_link"
+                    android:fontFamily="@font/titillium_regular"
+                    app:autoSizeMaxTextSize="12sp"
+                    app:autoSizeMinTextSize="10sp"
+                    app:autoSizeStepGranularity="0.8sp"
+                    app:autoSizeTextType="uniform" />
+
+                <TextView
+                    android:id="@+id/termsOfUseTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/terms_of_use"
+                    android:textColor="@color/url_link"
+                    android:fontFamily="@font/titillium_regular"
+                    app:autoSizeMaxTextSize="12sp"
+                    app:autoSizeMinTextSize="10sp"
+                    app:autoSizeStepGranularity="0.8sp"
+                    app:autoSizeTextType="uniform" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--
+    </ScrollView>
+    -->
+
+</layout>

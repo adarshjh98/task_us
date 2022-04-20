@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Post Preview</title>
+
+    <link
+      rel="stylesheet"
+      href="{% static 'site_admin/css/postPreview.css' %}"
+    />
+  </head>
+  <body>
+    <div id="post">
+      <div id="selectedPostTitle"></div>
+      <div id="selectedPostContent"></div>
+    </div>
+
+    <script>
+      document.getElementById("selectedPostTitle").innerHTML =
+        sessionStorage.getItem("postName");
+      const postType = sessionStorage.getItem("postType");
+
+      console.log(postType);
+
+      if (postType.indexOf("img") > -1) {
+        let contentImage = document.createElement("img");
+        contentImage.setAttribute("id", "postImageOrVideo");
+        contentImage.setAttribute(
+          "src",
+          sessionStorage.getItem("postContentMedia")
+        );
+        document
+          .getElementById("selectedPostContent")
+          .appendChild(contentImage);
+      } else if (postType.indexOf("vid") > -1) {
+        let contentVideo = document.createElement("video");
+        contentVideo.setAttribute("id", "postImageOrVideo");
+        contentVideo.setAttribute(
+          "src",
+          sessionStorage.getItem("postContentMedia")
+        );
+        document
+          .getElementById("selectedPostContent")
+          .appendChild(contentVideo);
+      }
+
+      if (postType.toLowerCase().indexOf("txt") > -1 || postType == "article") {
+        let content = document.createElement("pre");
+        content.setAttribute("style", "white-space: normal");
+        content.innerHTML = sessionStorage.getItem("postContent");
+        document.getElementById("selectedPostContent").appendChild(content);
+      }
+    </script>
+  </body>
+</html>

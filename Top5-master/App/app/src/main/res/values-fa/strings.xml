@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Top5</string>
+
+    <string name="your_fav">علاقه خود را</string>
+    <string name="rec_app">برنامه پیشنهادی</string>
+    <string name="log_in">ورود به سیستم</string>
+    <string name="sign_up">ثبت</string>
+    <string name="new_quick_login_face_id"> <b>جدید!</b> ورود سریع برای انجام این کار</string>
+    <string name="use_face_id">استفاده از انجام این کار</string>
+    <string name="forgot_pass_heading">FORGOT PASSWORD</string>
+    <string name="forgot_pass">رمز ورود خود را فراموش کرده اید؟</string>
+    <string name="forgot_pass_ins">A password reset email will be sent to the provided email, if associated to an account.</string>
+    <string name="send">SEND</string>
+    <string name="sign_in_using">با استفاده از سیستم وارد شوید</string>
+    <string name="new_acc">حساب کاربری ندارید؟ ثبت نام کن</string>
+    <string name="sign_up_using">ثبت نام با استفاده از</string>
+    <string name="existing_acc">قبلاً حساب دارید؟ وارد شدن</string>
+    <string name="hint_username">نام کاربری</string>
+    <string name="hint_email">پست الکترونیک</string>
+    <string name="hint_password">کلمه عبور</string>
+    <string name="hint_confirm_password">رمز عبور را تأیید کنید</string>
+<!--    <string name="hint_gender">جنسیت</string>-->
+<!--    <string name="hint_bio">بیو</string>-->
+    <string name="user_pref_ins">برخی از موضوعات مورد علاقه خود را انتخاب کنید یا محتوای مورد علاقه خود را جستجو کنید</string>
+    <string name="search_txt_placeholder">...کلیدواژه ها را وارد کنید</string>
+    <string name="popular">محبوب</string>
+    <string name="category">دسته بندی</string>
+    <string name="save">صرفه جویی</string>
+    <string name="filter">فیلتر</string>
+    <string name="filter_made_for_you">ساخته شده برای تو</string>
+    <string name="filter_you_may_also_like">ممکن است همیشه دوست داشته باشید</string>
+    <string name="filter_recently_viewed">به تازگی بازدید شده</string>
+    <string name="filter_new">جدید</string>
+    <string name="filter_mood">حالت</string>
+    <string name="your_interests">علایق شما</string>
+    <string name="language">زبان</string>
+    <string name="edit_profile">ویرایش نمایه</string>
+    <string name="title_edit_profile_photo">dd</string>
+    <string name="browse_photo_title">عکس پروفایل را انتخاب کنید</string>
+    <string name="gallery">گالری</string>
+    <string name="photo">دوربین</string>
+<!--    <string name="gender">جنس</string>-->
+<!--    <string name="bio">بیو</string>-->
+    <string name="loading">جستجو</string>
+    <string name="none">هیچ یک</string>
+    <string name="downloads_none">شما هنوز چیزی در بارگیریهای خود ذخیره نکرده اید</string>
+    <string name="details_none">اینجا چیزی نیست - هنوز!</string>
+
+<!--    <string name="gender_placeholder">زن</string>-->
+    <string name="bio_placeholder">نشاط، تا زحمت و اندوه، برخی از موارد مهم برای انجام با گذشت سالها ، من خواهم آمد ، كه كسی مزیت ورزش را از او بدست می آورد ، بنابراین تلاش محرک اگر منطقه مدرسه و طول عمر داشته باشد. اما درد در کار خانه خود را به عنوان</string>
+
+    <string name="english">انگلیسی</string>
+    <string name="persian">فارسی</string>
+
+<!--    <string name="gender_male">نر</string>-->
+<!--    <string name="gender_female">زن</string>-->
+<!--    <string name="gender_other">دیگر</string>-->
+<!--    <string name="gender_prefer_not_to_say">ترجیح میدهم نگویم</string>-->
+    <string name="privacy_policy">سیاست حفظ حریم خصوصی</string>
+    <string name="terms_of_use">شرایط استفاده</string>
+
+</resources>

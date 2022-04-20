@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.main.MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.088"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintHeight_percent="0.088"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layoutDirection="ltr">
+
+                <View
+                    android:id="@+id/header_start_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintWidth_percent="0.056" />
+
+                <ImageView
+                    android:id="@+id/filterBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/filter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="H, 1:1"
+                    app:layout_constraintStart_toEndOf="@+id/header_start_gap"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.08"
+                    android:padding="4dp"
+                    android:background="@drawable/transparent_rect_with_ripple"/>
+
+                <TextView
+                    android:id="@+id/greetingsUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/titillium_bold"
+                    android:includeFontPadding="false"
+                    android:text="HEY THOMAS!"
+                    android:textAlignment="center"
+                    android:textColor="#000"
+                    app:autoSizeMaxTextSize="21sp"
+                    app:autoSizeMinTextSize="17sp"
+                    app:autoSizeStepGranularity="2sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/userBtn"
+                    app:layout_constraintStart_toEndOf="@+id/filterBtn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/userBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/user"
+                    android:scaleType="fitXY"
+                    app:riv_oval="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="H, 1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/header_end_gap"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.08"
+                    android:padding="4dp"
+                    android:background="@drawable/transparent_rect_with_ripple" />
+
+                <View
+                    android:id="@+id/header_end_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.056" />
+
+                <View
+                    android:id="@+id/logout_txt_end_gap"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintWidth_percent="0.042" />
+
+
+                <ImageView
+                    android:id="@+id/logoutTxt"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/logout"
+                    android:visibility="gone"
+                    app:layout_constraintDimensionRatio="W, 0.344:1"
+                    app:layout_constraintEnd_toStartOf="@+id/logout_txt_end_gap"
+                    app:layout_constraintTop_toBottomOf="@+id/userBtn"
+                    app:layout_constraintWidth_percent="0.089" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/header_bottom_border"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEDED"
+                app:layout_constraintTop_toBottomOf="@+id/header" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <fragment
+            android:id="@+id/main_app_nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toTopOf="@+id/footerLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/headerLayout"
+            app:navGraph="@navigation/main_app_nav_graph" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/footerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent="0.051"
+            android:layoutDirection="ltr">
+
+            <View
+                android:id="@+id/footer_top_border"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#EEEDED"
+                app:layout_constraintBottom_toTopOf="@+id/footer" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/footer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                app:itemBackground="@null"
+                android:background="#fafafa"
+                app:itemIconSize="15dp"
+                app:itemIconTint="@drawable/bottom_nav_bar_item_color_state"
+                app:labelVisibilityMode="unlabeled"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:menu="@menu/main_app_bottom_nav_menu" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

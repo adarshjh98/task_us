@@ -1,0 +1,25 @@
+{% load static %}
+
+<footer>
+  {% include "site/partials/_go_top.html" %}
+  <div>
+    <img src="{% static 'site/img/global2.png' %}" alt="logo" style="height: 35px" />
+    <div class="footer_links">
+      <a href="https://www.facebook.com/IranTop5"
+        ><img src="{% static 'site/img/facebook_icon.png' %}" alt="facebook"
+      /></a>
+      <a href="https://twitter.com/IranTop5"
+        ><img src="{% static 'site/img/twitter_icon.png' %}" alt="twitter"
+      /></a>
+      <a href="https://www.instagram.com/irantop5/">
+        <img
+          src="{% static 'site/img/instagram_icon.png' %}"
+          width="16"
+          alt="instagram"
+        />
+      </a>
+    </div>
+    <div></div>
+  </div>
+  <div><p>{% if lang == 'en' %}{{ staticTextMap.footer_copyright_en }}{% else %}{{ staticTextMap.footer_copyright_fa }}{% endif %}</p></div>
+</footer>

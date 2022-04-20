@@ -1,0 +1,360 @@
+INFO 2022-04-07 19:55:23,796 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-07 19:55:24,093 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-07 19:55:24,097 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-07 19:55:25,682 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-07 19:55:25,686 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 10:33:41,813 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 10:33:42,767 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 10:33:42,772 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 10:33:44,301 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 10:33:44,305 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 10:34:12,486 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 10:34:12,492 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 10:34:13,724 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 10:34:13,728 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 10:34:20,264 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 10:34:20,551 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 10:34:20,556 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 10:34:21,656 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 10:34:21,660 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 11:24:36,270 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 11:24:36,558 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 11:24:36,563 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 11:24:38,008 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 11:24:38,012 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 11:32:26,211 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 11:32:26,900 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 11:32:27,255 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 11:32:27,261 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 11:32:28,437 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 11:32:28,441 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 11:33:22,236 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 11:33:22,887 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 11:33:23,188 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 11:33:23,192 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 11:33:24,461 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 11:33:24,465 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 12:58:22,217 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py access_token is expired. Now: 2022-04-08 07:28:22.217773, token_expiry: 2022-04-08 07:03:22.551158
+INFO 2022-04-08 12:58:22,221 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:00:47,323 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:00:47,630 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:00:47,634 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:00:48,867 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:00:48,872 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:07:03,072 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:07:03,370 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:07:03,375 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:07:04,921 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:07:04,925 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:24:15,846 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:24:16,477 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:24:16,809 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:24:16,814 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:24:18,541 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:24:18,545 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:26:19,580 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:26:20,222 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:26:20,536 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:26:20,541 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:26:21,747 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:26:21,754 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+ERROR 2022-04-08 13:26:59,453 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:26:59,454 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:04,197 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:04,198 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:07,364 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:07,365 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:15,238 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:15,239 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,267 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,270 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,271 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,439 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,440 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+ERROR 2022-04-08 13:27:16,623 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\log.py Internal Server Error: /posts/-MzTr1-9IKMsAMdesMyE/
+Traceback (most recent call last):
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 893, in post
+    return JsonResponse({"result": "success", "likes": currLikeCount, "likesCount":currLikeCount, "likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\DjangoProject\Top5-master\Top5Site\main\views.py", line 895, in post
+    return JsonResponse({"result": "failure","likeStrWR":likeStr,})
+UnboundLocalError: local variable 'likeStr' referenced before assignment
+ERROR 2022-04-08 13:27:16,624 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\servers\basehttp.py "POST /posts/-MzTr1-9IKMsAMdesMyE/ HTTP/1.1" 500 25734
+INFO 2022-04-08 13:27:58,725 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:27:59,367 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:27:59,715 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:27:59,721 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:28:00,967 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:28:00,971 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:44:21,701 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:44:22,408 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:44:22,762 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:44:22,767 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:44:24,496 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:44:24,500 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:45:19,209 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:45:19,833 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:45:20,145 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:45:20,150 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:45:21,826 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:45:21,831 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:48:17,370 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:48:18,021 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:48:18,387 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:48:18,393 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:48:20,491 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:48:20,495 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:50:52,194 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 13:50:52,844 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 13:50:53,190 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:50:53,196 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 13:50:54,703 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 13:50:54,707 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:00:57,631 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:00:58,301 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:00:58,661 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:00:58,666 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:01:00,699 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:01:00,703 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:02:23,586 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:02:24,224 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:02:24,534 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:02:24,539 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:02:25,813 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:02:25,817 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:03:36,101 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:03:36,755 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:03:37,082 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:03:37,087 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:03:38,462 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:03:38,467 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:05:08,781 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:05:09,408 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:05:09,715 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:05:09,720 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:05:11,048 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:05:11,052 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:06:55,614 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:06:56,454 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:06:56,805 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:06:56,811 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:06:58,600 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:06:58,604 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:12:12,889 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:12:13,648 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:12:14,039 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:12:14,046 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:12:15,545 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:12:15,549 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:20:57,139 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:20:57,468 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:20:57,473 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:20:59,037 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:20:59,041 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:23:37,949 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:23:38,245 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:23:38,249 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:23:40,104 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:23:40,108 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:43:13,400 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-08 14:43:14,065 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-08 14:43:14,457 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:43:14,464 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 14:43:15,680 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-08 14:43:15,684 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-08 16:16:25,686 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py access_token is expired. Now: 2022-04-08 10:46:25.686186, token_expiry: 2022-04-08 10:13:13.884639
+INFO 2022-04-08 16:16:25,694 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 14:47:00,722 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 14:47:01,573 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 14:47:01,578 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 14:47:03,128 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 14:47:03,133 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:07:35,434 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:07:36,107 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:07:36,458 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:07:36,463 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:07:38,231 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:07:38,237 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:28:36,996 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:28:37,709 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:28:38,081 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:28:38,086 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:28:39,455 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:28:39,459 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:30:27,629 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:30:28,256 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:30:28,572 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:30:28,576 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:30:29,836 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:30:29,840 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:31:04,783 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:31:05,426 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:31:05,729 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:31:05,735 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:31:06,934 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:31:06,938 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:39:28,929 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:39:29,559 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:39:29,888 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:39:29,894 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:39:33,313 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:39:33,318 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:40:03,920 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:40:04,550 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:40:04,895 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:40:04,900 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:40:06,352 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:40:06,357 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:40:27,014 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:40:27,683 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:40:28,029 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:40:28,035 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:40:29,400 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:40:29,405 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:40:35,287 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:40:35,973 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:40:36,343 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:40:36,348 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:40:37,744 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:40:37,748 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:46:02,108 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py D:\DjangoProject\Top5-master\Top5Site\main\views.py changed, reloading.
+INFO 2022-04-11 15:46:02,744 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:46:03,061 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:46:03,066 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:46:04,490 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:46:04,495 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:46:43,218 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\django\utils\autoreload.py Watching for file changes with StatReloader
+INFO 2022-04-11 15:46:43,537 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:46:43,542 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token
+INFO 2022-04-11 15:46:44,824 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\transport.py Attempting refresh to obtain initial access_token
+INFO 2022-04-11 15:46:44,828 C:\Users\Ritik\AppData\Local\Programs\Python\Python39\lib\site-packages\oauth2client\client.py Refreshing access_token

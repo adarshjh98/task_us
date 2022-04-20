@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.main.TagPostsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/back_btn_top_gap"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="W, 0.043:1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/back_btn_start_gap"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/back_btn_top_gap"
+                app:layout_constraintWidth_percent="0.061" />
+
+            <ImageView
+                android:id="@+id/backBtn"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/back"
+                app:layout_constraintDimensionRatio="0.711"
+                app:layout_constraintStart_toEndOf="@+id/back_btn_start_gap"
+                app:layout_constraintTop_toBottomOf="@+id/back_btn_top_gap"
+                app:layout_constraintWidth_percent="0.05" />
+
+            <TextView
+                android:id="@+id/tagTitleTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/titillium_regular"
+                android:includeFontPadding="false"
+                android:text="@string/forgot_pass_heading"
+                android:textColor="#000"
+                app:autoSizeMaxTextSize="19sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeStepGranularity="1.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@+id/backBtn"
+                app:layout_constraintTop_toBottomOf="@+id/back_btn_top_gap" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/postsList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:overScrollMode="never"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar"
+            app:layout_constraintWidth_percent="0.856" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loadingLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/topBar"
+            app:layout_constraintWidth_percent="0.856">
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:indeterminate="true"
+                android:theme="@style/ProgressBar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/titillium_medium"
+                android:includeFontPadding="false"
+                android:text="@string/loading"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                app:autoSizeMaxTextSize="19sp"
+                app:autoSizeStepGranularity="1.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

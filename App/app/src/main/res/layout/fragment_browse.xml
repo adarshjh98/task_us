@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.main.BrowseFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/main_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:id="@+id/search_bar_top_gap"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="W, 0.04:1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/searchBar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/search_bar_background"
+                    app:layout_constraintDimensionRatio="W, 0.107:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_top_gap"
+                    app:layout_constraintWidth_percent="0.81">
+
+                    <EditText
+                        android:id="@+id/searchInput"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@null"
+                        android:fontFamily="@font/titillium_regular"
+                        android:hint="@string/search_txt_placeholder"
+                        android:includeFontPadding="false"
+                        android:inputType="text|textNoSuggestions"
+                        android:textColorHint="@color/colorHint"
+                        android:textSize="12sp"
+                        app:autoSizeMaxTextSize="12sp"
+                        app:autoSizeMinTextSize="10sp"
+                        app:autoSizeStepGranularity="0.8sp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toStartOf="@+id/searchBtn"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/searchBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="15dp"
+                        android:src="@drawable/search"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="H, 1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHeight_percent="0.445"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/search_bar_bottom_space"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="W, 0.039:1"
+                    app:layout_constraintTop_toBottomOf="@+id/searchBar" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/noSearchTermLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_bottom_space">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/browseCategoriesList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="ltr"
+                        android:overScrollMode="never"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.811" />
+
+                    <View
+                        android:id="@+id/popular_top_space"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintHeight_percent="0.005"
+                        app:layout_constraintTop_toBottomOf="@+id/browseCategoriesList" />
+
+                    <TextView
+                        android:id="@+id/popularTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/titillium_medium"
+                        android:includeFontPadding="false"
+                        android:text="@string/popular"
+                        android:textColor="#000"
+                        app:autoSizeMaxTextSize="19sp"
+                        app:autoSizeMinTextSize="16sp"
+                        app:autoSizeStepGranularity="1.5sp"
+                        app:autoSizeTextType="uniform"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/popular_top_space"
+                        app:layout_constraintWidth_percent="0.811" />
+
+                    <View
+                        android:id="@+id/popular_list_top_space"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintHeight_percent="0.019"
+                        app:layout_constraintTop_toBottomOf="@+id/popularTxt" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/popularList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        app:layout_constraintBottom_toTopOf="@+id/popular_list_bottom_space"
+                        app:layout_constraintTop_toBottomOf="@+id/popular_list_top_space" />
+
+                    <View
+                        android:id="@+id/popular_list_bottom_space"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintHeight_percent="0.019" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/searchTermLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar_bottom_space">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/searchItemsList"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintWidth_percent="0.856" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/noneLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_layout"
+            app:layout_constraintWidth_percent="0.856">
+
+            <TextView
+                android:id="@+id/statusTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/titillium_medium"
+                android:text="@string/none"
+                android:textAlignment="center"
+                android:textColor="@color/colorHint"
+                app:autoSizeMaxTextSize="19sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeStepGranularity="1.5sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@+id/loadingLayout"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/main_layout"-->
+<!--            app:layout_constraintWidth_percent="0.856"-->
+<!--            android:visibility="gone">-->
+
+<!--            <ProgressBar-->
+<!--                android:id="@+id/progress_bar"-->
+<!--                style="?android:attr/progressBarStyleLarge"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@null"-->
+<!--                android:indeterminate="true"-->
+<!--                android:theme="@style/ProgressBar"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="5dp"-->
+<!--                android:fontFamily="@font/titillium_medium"-->
+<!--                android:includeFontPadding="false"-->
+<!--                android:text="@string/loading"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textColor="@color/colorPrimary"-->
+<!--                app:autoSizeMaxTextSize="19sp"-->
+<!--                app:autoSizeStepGranularity="1.5sp"-->
+<!--                app:autoSizeTextType="uniform"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/progress_bar" />-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
